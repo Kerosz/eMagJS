@@ -19,14 +19,16 @@ Build a full-stack fully operational ecommerce application using `VanillaJS` on 
 ## System Design Process
 
 1. Create folder structure
+   [x] Create `root` folder / add `client` and `server` folders
+   [x] Create `src` folder in client
+   [x] Run `npm init` in client folder
+   [x] Add live-server as devDependencies
+   [x] Setup `yarn start` command
 
-- [x] Create `root` folder / add `client` and `server` folders
-- [x] Create `src` folder in client
-- [x] Run `npm init` in client folder
-- [x] Add live-server as devDependencies
-- [x] Setup `yarn start` command
-
-2. TBD
+2. Create static homepage
+   [x] Add markup for header
+   [x] Add markup for main page
+   [x] Add markup for footer
 
 ## Install
 
