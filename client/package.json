@@ -1,0 +1,23 @@
+{
+	"name": "emagjs-client",
+	"version": "0.1.0",
+	"description": "eMag - A full stack web application for ecommerce built with vanilla JS",
+	"main": "index.js",
+	"scripts": {
+		"start": "live-server src --verbose",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Kerosz/eMagJS.git"
+	},
+	"author": "Andrei C.",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Kerosz/eMagJS/issues"
+	},
+	"homepage": "https://github.com/Kerosz/eMagJS#readme",
+	"devDependencies": {
+		"live-server": "^1.2.1"
+	}
+}
