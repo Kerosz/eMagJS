@@ -1,7 +1,5 @@
 const Products = {
-	render: () => {
-		return `<div>Product details page</div>`;
-	},
+  render: () => '<div>Product details page</div>',
 };
 
 export default Products;
