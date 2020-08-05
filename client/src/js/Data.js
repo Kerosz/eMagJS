@@ -85,6 +85,19 @@ const Data = [
 		reviews: 127,
 		stock: 11,
 	},
+	{
+		id: 'AKP7460IX',
+		name:
+			'Cuptor incorporabil Whirlpool AKP 7460, Electric, 65 l, Multifunctional, 8 functii, Inox antiamprenta',
+		category: 'electronics',
+		img: '/img/products/product-8.png',
+		price: 1849,
+		onSale: true,
+		salePrice: 1149,
+		rating: 3.7,
+		reviews: 14,
+		stock: 21,
+	},
 ];
 
 export default Data;

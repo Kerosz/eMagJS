@@ -30,10 +30,10 @@ const App = {
 		return routes[parseUrl] ? routes[parseUrl] : NotFound;
 	},
 
-	render: () => {
+	render: async () => {
 		const page = App.router();
 		const storeSection = document.querySelector('[data-store]');
-		storeSection.innerHTML = page.render();
+		storeSection.innerHTML = await page.render();
 
 		window.onhashchange = () => {
 			App.render();
