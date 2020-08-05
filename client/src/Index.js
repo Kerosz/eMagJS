@@ -1,5 +1,5 @@
-import Router from './js/components/App.js';
+import App from './js/components/App.js';
 
 window.onload = () => {
-	Router();
+	App();
 };

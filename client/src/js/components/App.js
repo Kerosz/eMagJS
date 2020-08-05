@@ -1,9 +1,9 @@
 import Home from './Home.js';
 
-const Router = () => {
+const App = () => {
 	const storeSection = document.querySelector('[data-store]');
 
 	storeSection.innerHTML = Home.render();
 };
 
-export default Router;
+export default App;

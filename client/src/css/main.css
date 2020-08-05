@@ -20,6 +20,7 @@ body {
 	height: 100vh;
 	font: 1.6rem 'Roboto', sans-serif;
 	color: #302e2d;
+	cursor: default;
 }
 
 .page {
@@ -48,6 +49,30 @@ body {
 .btn:hover {
 	border: 0.1rem solid #ffffff;
 	border-radius: 5rem;
+}
+
+.btn-emag {
+	text-align: center;
+	color: #ffffff;
+	background: linear-gradient(
+		to right,
+		hsl(228.9, 49%, 52.4%) 10%,
+		hsl(212.7, 72.9%, 55.1%)
+	);
+	border: none;
+	outline: none;
+	border-radius: 0.4rem;
+	padding: 1rem;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.btn-emag:hover {
+	background: linear-gradient(
+		to right,
+		hsl(228.9, 54.8%, 42.5%) 10%,
+		hsl(212.7, 72.3%, 45.3%)
+	);
 }
 
 .cta {
@@ -228,12 +253,31 @@ body {
 }
 
 .product {
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	min-height: 37rem;
+	min-height: 35rem;
 	align-items: center;
 	background: #ffffff;
 	padding: 1rem;
+	border-radius: 0.3rem;
+}
+
+.product__badge {
+	position: absolute;
+	top: 1rem;
+	left: -0.3rem;
+	width: 6.75rem;
+	height: 3rem;
+	background: hsl(15.5, 100%, 50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.3rem;
+	/* font-weight: 500; */
+	color: #ffffff;
+	/* border: #ededed solid 0.1rem; */
+	box-shadow: 0 2px 6px -2px hsla(0, 0%, 0%, 0.35);
 	border-radius: 0.3rem;
 }
 
@@ -249,6 +293,7 @@ body {
 }
 
 .product__title {
+	height: 5rem;
 	text-decoration: none;
 	text-align: center;
 	color: #302e2d;
@@ -258,6 +303,7 @@ body {
 }
 
 .product__price {
+	height: 4.35rem;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -281,28 +327,38 @@ body {
 	text-decoration: line-through;
 }
 
-.product__basket {
-	font-size: 1.5rem;
-	text-decoration: none;
-	text-align: center;
-	color: #ffffff;
-	background: linear-gradient(
-		to right,
-		hsl(228.9, 49%, 52.4%) 10%,
-		hsl(212.7, 72.9%, 55.1%)
-	);
-	border-radius: 0.5rem;
-	padding: 1rem;
-	width: 70%;
+.product__more {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-bottom: 0.5rem;
-	overflow: hidden;
+	width: 100%;
 }
 
-.product__basket:hover {
-	background: linear-gradient(
+.product__detail {
+	font-size: 1.5rem;
+	text-decoration: none;
+	width: 57%;
+	max-width: 20rem;
+	padding: 0.9rem 3rem;
+	margin-right: 0.3rem;
+}
+
+.product_basket {
+	background: hsl(358, 99.1%, 58.6%);
+	background-image: linear-gradient(
 		to right,
-		hsl(228.9, 54.8%, 42.5%) 10%,
-		hsl(212.7, 72.3%, 45.3%)
+		hsl(352.9, 60%, 52.9%),
+		hsl(358, 99.1%, 58.6%)
+	);
+	padding: 0.79rem 1.35rem 0.48rem 1.35rem;
+}
+
+.product_basket:hover {
+	background-image: linear-gradient(
+		to right,
+		hsl(352.9, 60%, 52.9%),
+		hsl(358, 99.1%, 58.6%)
 	);
 }
 
