@@ -1,0 +1,23 @@
+{
+	"name": "emag-js-server",
+	"version": "0.1.0",
+	"description": "The backend server for eMag JS Vanilla project",
+	"main": "index.js",
+	"scripts": {
+		"start": "node server/server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Kerosz/eMagJS.git"
+	},
+	"author": "Andrei C",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Kerosz/eMagJS/issues"
+	},
+	"homepage": "https://github.com/Kerosz/eMagJS#readme",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.1"
+	}
+}
