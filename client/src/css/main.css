@@ -106,8 +106,14 @@ body {
 }
 
 .header__nav-item {
-	margin: 1rem 1rem;
+	margin: 1rem 1.5rem;
 	list-style: none;
+}
+.header__nav-item:last-of-type {
+	margin-right: 0;
+}
+.header__nav-item:first-of-type {
+	margin-left: 0;
 }
 
 .header__nav-link {
@@ -118,6 +124,12 @@ body {
 	color: #565656;
 	font-weight: 400;
 	font-size: 1.55rem;
+}
+.header__nav-link:last-of-type {
+	padding-right: 0;
+}
+.header__nav-link:first-of-type {
+	padding-left: 0;
 }
 
 .header__nav-link:hover {
@@ -132,6 +144,7 @@ body {
 .header__nav-link .bi-caret-down-fill {
 	color: #565656;
 	margin-left: 0.4rem;
+	margin-right: 0;
 }
 
 .header__menu {
@@ -217,6 +230,7 @@ body {
 .product {
 	display: flex;
 	flex-direction: column;
+	min-height: 37rem;
 	align-items: center;
 	background: #ffffff;
 	padding: 1rem;
