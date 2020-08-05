@@ -1,7 +1,26 @@
-import Data from '../Data.js';
+// import Data from '../Data.js';
 
 const Home = {
-	render: () => {
+	getData: async () => {
+		const response = await fetch('http://localhost:5000/api', {
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+			},
+		});
+
+		if (!response || !response.ok) {
+			console.error('Error in getting data');
+			return `<div>Error in getting data</div>`;
+		}
+		const data = await response.json();
+
+		return data.products;
+	},
+
+	render: async () => {
+		const Data = await Home.getData();
+
 		return `
 			<ul class="store__products">
 				${Data.map(product => {
