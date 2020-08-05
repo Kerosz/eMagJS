@@ -2,10 +2,9 @@
 	"name": "emagjs-client",
 	"version": "0.1.0",
 	"description": "eMag - A full stack web application for ecommerce built with vanilla JS",
-	"main": "index.js",
+	"main": "Index.js",
 	"scripts": {
-		"start": "live-server src --verbose",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "live-server src --verbose"
 	},
 	"repository": {
 		"type": "git",

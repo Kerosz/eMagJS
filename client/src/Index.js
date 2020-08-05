@@ -1,5 +1,5 @@
 import App from './js/components/App.js';
 
 window.onload = () => {
-	App();
+	App.render();
 };

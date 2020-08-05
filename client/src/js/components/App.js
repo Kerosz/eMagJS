@@ -1,9 +1,44 @@
-import Home from './Home.js';
+import Home from '../pages/Home.js';
+import Products from '../pages/Products.js';
+import NotFound from '../pages/NotFound.js';
 
-const App = () => {
-	const storeSection = document.querySelector('[data-store]');
+const App = {
+	routes: {
+		'/': Home,
+		'/product/:id': Products,
+	},
 
-	storeSection.innerHTML = Home.render();
+	parseRequestUrl: () => {
+		const url = document.location.hash.toLowerCase();
+		const request = url.split('/');
+
+		return {
+			resource: request[1],
+			id: request[2],
+			action: request[3],
+		};
+	},
+
+	router: () => {
+		const { routes } = App;
+		const { resource, id, action } = App.parseRequestUrl();
+
+		const parseUrl =
+			(resource ? `/${resource}` : '/') +
+			(id ? '/:id' : '') +
+			(action ? `/${action}` : '');
+		return routes[parseUrl] ? routes[parseUrl] : NotFound;
+	},
+
+	render: () => {
+		const page = App.router();
+		const storeSection = document.querySelector('[data-store]');
+		storeSection.innerHTML = page.render();
+
+		window.onhashchange = () => {
+			App.render();
+		};
+	},
 };
 
 export default App;
