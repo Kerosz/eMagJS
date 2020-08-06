@@ -1,28 +1,28 @@
 {
-	"name": "emagjs-client",
-	"version": "0.1.0",
-	"description": "eMag - A full stack web application for ecommerce built with vanilla JS",
-	"main": "Index.js",
-	"scripts": {
-		"start": "webpack-dev-server --watch-content-base --open"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Kerosz/eMagJS.git"
-	},
-	"author": "Andrei C.",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/Kerosz/eMagJS/issues"
-	},
-	"homepage": "https://github.com/Kerosz/eMagJS#readme",
-	"devDependencies": {
-		"webpack": "^4.44.1",
-		"webpack-cli": "^3.3.12",
-		"webpack-dev-server": "^3.11.0"
-	},
-	"dependencies": {
-		"axios": "^0.19.2",
-		"bootstrap-icons": "^1.0.0-alpha5"
-	}
+  "name": "emagjs-client",
+  "version": "0.1.0",
+  "description": "eMag - A full stack web application for ecommerce built with vanilla JS",
+  "main": "Index.js",
+  "scripts": {
+    "start": "webpack-dev-server --watch-content-base --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kerosz/eMagJS.git"
+  },
+  "author": "Andrei C.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kerosz/eMagJS/issues"
+  },
+  "homepage": "https://github.com/Kerosz/eMagJS#readme",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap-icons": "^1.0.0-alpha5"
+  }
 }

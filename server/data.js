@@ -1,7 +1,7 @@
 const Data = {
   products: [
     {
-      id: '32HL4300H/A',
+      id: '32HL4300HA',
       name: 'Televizor LED Diamant, 80 cm, 32HL4300H/A, HD',
       category: 'electronics',
       img: '/img/products/product-1.png',
@@ -13,7 +13,7 @@ const Data = {
       stock: 11,
     },
     {
-      id: 'PD91-4DB',
+      id: 'PD914DB',
       name: 'Aspirator cu sac Electrolux PD91-4DB, 550W, 5 l',
       category: 'electronics',
       img: '/img/products/product-2.png',
@@ -25,7 +25,7 @@ const Data = {
       stock: 9,
     },
     {
-      id: 'HCNF-317A+',
+      id: 'HCNF317A',
       name:
         'Combina frigorifica Heinner HCNF-317A+, 317 l, No Frost, Display, Clasa A+, H185 cm',
       category: 'electronics',
@@ -33,7 +33,7 @@ const Data = {
       price: 2499,
       onSale: true,
       salePrice: 1429,
-      rating: 4.8,
+      rating: 4.5,
       reviews: 6,
       stock: 15,
     },
@@ -45,7 +45,7 @@ const Data = {
       price: 2749,
       onSale: true,
       salePrice: 1899,
-      rating: 4.2,
+      rating: 4,
       reviews: 29,
       stock: 8,
     },
@@ -62,7 +62,7 @@ const Data = {
       stock: 38,
     },
     {
-      id: 'SM-A105FZKUROM',
+      id: 'SMA105FZKUROM',
       name: 'Telefon mobil Samsung Galaxy A10, Dual Sim, 32GB, 4G, Black',
       category: 'electronics',
       img: '/img/products/product-5.png',
@@ -74,7 +74,7 @@ const Data = {
       stock: 20,
     },
     {
-      id: 'ACT-12ETL',
+      id: 'ACT12ETL',
       name:
         'Aparat de aer conditionat Star-Light ACT-12ETL, 3D Inverter, 12000 BTU, Functie incalzire, Clasa A++, Display',
       category: 'electronics',
@@ -82,7 +82,7 @@ const Data = {
       price: 1699,
       onSale: true,
       salePrice: 1099,
-      rating: 4.3,
+      rating: 4,
       reviews: 127,
       stock: 11,
     },
@@ -95,7 +95,7 @@ const Data = {
       price: 1849,
       onSale: true,
       salePrice: 1149,
-      rating: 3.7,
+      rating: 3.5,
       reviews: 14,
       stock: 21,
     },
