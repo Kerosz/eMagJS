@@ -21,22 +21,25 @@ const Rating = {
     if (!starCount) return '<span></span>';
 
     return `
-        ${Array(5)
-          .fill(0)
-          .map((_, idx) => {
-            return `${
-              starCount >= 1 + idx
-                ? fullStar
-                : starCount >= 0.5 + idx
-                ? halfStar
-                : emptyStar
-            }`;
-          })
-          .join('')}
-
+      <div class="product__rating">
+        <div class="product__rating-stars">
+          ${Array(5)
+            .fill(0)
+            .map((_, idx) => {
+              return `${
+                starCount >= 1 + idx
+                  ? fullStar
+                  : starCount >= 0.5 + idx
+                  ? halfStar
+                  : emptyStar
+              }`;
+            })
+            .join('')}
+        </div>
         <a href="/#/product/${id}">
          ${reviewCount || 0} reviews
         </a>
+      </div>
     `;
   },
 };

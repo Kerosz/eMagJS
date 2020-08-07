@@ -1,4 +1,4 @@
-import App from './js/components/App';
+import App from './components/App';
 
 window.onload = () => {
   App.render();

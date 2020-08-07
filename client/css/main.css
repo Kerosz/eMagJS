@@ -8,6 +8,14 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
 /******************/
 /* GLOBAL Styles */
 /****************/
@@ -44,11 +52,27 @@ body {
   outline: none;
   background: transparent;
   color: transparent;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .btn:hover {
   border: 0.1rem solid #ffffff;
   border-radius: 5rem;
+}
+
+.btn-secondary {
+  color: #3065d0;
+  border: 0.1rem solid #3065d0;
+  border-radius: 0.4rem;
+  outline: none;
+  background: transparent;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #e0e0e05b;
 }
 
 .btn-emag {
@@ -312,7 +336,7 @@ body {
 .product__rating > a {
   color: #302e2d;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-left: 0.35rem;
 }
 
@@ -320,7 +344,7 @@ body {
   color: #3065d0;
 }
 
-.product__rating > svg {
+.product__rating-stars > svg {
   color: #f9bf3b;
   font-size: 1.75rem;
   padding: 0 0.1rem;
