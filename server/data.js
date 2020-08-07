@@ -84,7 +84,7 @@ const Data = {
       salePrice: 1099,
       rating: 4,
       reviews: 127,
-      stock: 11,
+      stock: 12,
     },
     {
       id: 'AKP7460IX',

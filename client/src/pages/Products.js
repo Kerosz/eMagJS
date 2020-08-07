@@ -54,6 +54,17 @@ const Products = {
     `,
   },
 
+  componentDidUpdate: () => {
+    const onClickHandler = () => {
+      const { id } = parseRequestUrl();
+      document.location.hash = `/cart/${id}`;
+    };
+
+    document
+      .querySelector('[data-addButton]')
+      .addEventListener('click', onClickHandler);
+  },
+
   render: async () => {
     const { id } = parseRequestUrl();
     const product = await Api.getProduct(id.toUpperCase());
@@ -79,7 +90,7 @@ const Products = {
     } = Products.icons;
     const saleValue = Math.floor(((price - salePrice) / price) * 100);
     const giftPoints = (onSale ? salePrice / 100 : price / 100).toFixed(1);
-    const isStock = stock >= 1;
+    const onStock = stock >= 1;
 
     if (product.error) return `<div>${product.error}</div>`;
 
@@ -115,9 +126,9 @@ const Products = {
                 Sold and delivered by: <span>eMAG</span>
               </div>
               <div class="products__details-more--stock" style="background: ${
-                isStock ? '#009900' : '#EF2100'
+                onStock ? '#009900' : '#EF2100'
               };">
-                ${isStock ? 'In Stock' : 'No Stock'}
+                ${onStock ? 'In Stock' : 'No Stock'}
               </div>
               <ul class="products__details-more--delivery">
                 <li class="delivery">
@@ -166,11 +177,16 @@ const Products = {
                 `
               }
               <div class="product__more">
-                <button class="product__detail btn-emag">
+                ${
+                  onStock
+                    ? `
+                <button class="product__detail btn-emag" data-addButton>
                   <div class="red">${cart}</div>
                   <span>Add to basket</span>
                 </button>
-
+                `
+                    : ''
+                }
                 <button class="product__detail btn-secondary">
                 <div>${heart}</div>
                 <span>Add to favorites</span>

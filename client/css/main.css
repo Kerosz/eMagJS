@@ -398,7 +398,7 @@ body {
     hsl(352.9, 60%, 52.9%),
     hsl(358, 99.1%, 58.6%)
   );
-  padding: 0.75rem 1.35rem 0.44rem 1.35rem;
+  padding: 0.6rem 1.35rem 0.3rem 1.35rem;
 }
 
 .product__basket:hover {

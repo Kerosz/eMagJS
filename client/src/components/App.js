@@ -1,6 +1,7 @@
 import Home from '../pages/Home';
 import Products from '../pages/Products';
 import Account from '../pages/Account';
+import Cart from '../pages/Cart';
 import NotFound from '../pages/NotFound';
 import { parseRequestUrl } from '../Config';
 
@@ -9,6 +10,8 @@ const App = {
     '/': Home,
     '/myaccount': Account,
     '/product/:id': Products,
+    '/cart/:id': Cart,
+    '/cart': Cart,
   },
 
   router: () => {
@@ -26,6 +29,7 @@ const App = {
     const page = App.router();
     const root = document.querySelector('[data-root]');
     root.innerHTML = await page.render();
+    await page.componentDidUpdate();
 
     window.onhashchange = () => {
       App.render();
