@@ -1,28 +1,71 @@
+import App from '../components/App';
 import Api from '../Api';
 import { parseRequestUrl } from '../Config';
 import { getCartItems, setCartItems } from '../LocalStorage';
 
 const Cart = {
-  addToCart: (newItem, forceUpdate = false) => {
+  addToCart: (newItem, updateCart = false) => {
+    // Redirects user to basket
+    document.location.hash = '/cart';
+
     // Gets the items from local storage
     let cartItems = getCartItems();
 
-    // Finds the product id if the items match
+    // Finds if the product already exsits in the cart
     const itExists = cartItems.find((item) => item.product === newItem.product);
 
     // Updates the local storage
     if (itExists) {
-      cartItems = cartItems.map((oldItem) =>
-        oldItem.product === itExists.product ? newItem : oldItem
-      );
+      if (updateCart) {
+        cartItems = cartItems.map((oldItem) =>
+          oldItem.product === itExists.product ? newItem : oldItem
+        );
+      }
     } else {
       cartItems = [...cartItems, newItem];
     }
 
     setCartItems(cartItems);
+
+    if (updateCart) {
+      App.rerender(Cart);
+    }
   },
 
-  componentDidUpdate: () => {},
+  removeFromCart: (id) => {
+    // Filters out the item that matches the id and returns all other items
+    const newItems = getCartItems().filter((item) => item.product !== id);
+    setCartItems(newItems);
+
+    App.rerender(Cart);
+  },
+
+  componentDidUpdate: () => {
+    // Handle logic for changing the qty of products
+    const qtySelect = document.querySelectorAll('[data-qty]');
+    qtySelect.forEach((select) => {
+      Array.from(select).forEach((option) => {
+        option.addEventListener('click', (e) => {
+          const newQty = Number(e.target.value);
+          const matchItem = getCartItems().find(
+            (item) => item.product === select.id
+          );
+
+          Cart.addToCart({ ...matchItem, qty: newQty }, true);
+        });
+      });
+    });
+
+    // Handle logic for removing the product from cart
+    const removeButton = document.querySelectorAll('[data-remove]');
+    removeButton.forEach((button) => {
+      button.addEventListener('click', () => {
+        const { id } = button;
+
+        Cart.removeFromCart(id);
+      });
+    });
+  },
 
   render: async () => {
     const request = parseRequestUrl();
@@ -87,6 +130,7 @@ const Cart = {
                           onSale,
                           salePrice,
                           stock,
+                          qty,
                         } = item;
                         const onStock = stock >= 1;
 
@@ -107,11 +151,11 @@ const Cart = {
                                           : '<span style="color: #EF2100; font-weight: 500;">No Stock</span>'
                                       }</span>
                                       <span>
-                                        Qty <select id="${id}">
+                                        Qty <select id="${id}" data-qty>
                                         ${[
                                           ...Array(item.stock).keys(),
                                         ].map((num) =>
-                                          data.qty === num + 1
+                                          qty === num + 1
                                             ? `<option selected value="${
                                                 num + 1
                                               }">${num + 1}</option>`
@@ -136,8 +180,8 @@ const Cart = {
                                       }
 
                                       <div class="cart__item-details--buttons">
-                                        <button type="button" id="${id}">Move to Favorites</button>
-                                        <button type="button" id="${id}">Remove</button>
+                                        <button type="button" id="${id}" data-save>Move to Favorites</button>
+                                        <button type="button" id="${id}" data-remove>Remove</button>
                                       </div>
                                     </div>
                                   </div>

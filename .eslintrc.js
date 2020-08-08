@@ -12,5 +12,6 @@ module.exports = {
   rules: {
     'no-console': 0,
     'no-nested-ternary': 0,
+    'import/no-cycle': 0,
   },
 };

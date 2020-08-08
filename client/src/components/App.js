@@ -29,11 +29,19 @@ const App = {
     const page = App.router();
     const root = document.querySelector('[data-root]');
     root.innerHTML = await page.render();
-    await page.componentDidUpdate();
+
+    if (page.componentDidUpdate) {
+      await page.componentDidUpdate();
+    }
 
     window.onhashchange = () => {
       App.render();
     };
+  },
+
+  rerender: async (component) => {
+    document.querySelector('[data-root]').innerHTML = await component.render();
+    await component.componentDidUpdate();
   },
 };
 
