@@ -54,6 +54,22 @@ const Products = {
     `,
   },
 
+  displayPromotion: () => {
+    const promotions = [
+      {
+        promoImg: '/img/promo-2.png',
+        promoLink: '/#/promo-outlet/',
+      },
+      {
+        promoImg: '/img/promo-3.png',
+        promoLink: '/#/promo-under120/',
+      },
+    ];
+    const randomPromo = Math.floor(Math.random() * promotions.length);
+
+    return promotions[randomPromo];
+  },
+
   componentDidUpdate: () => {
     const onClickHandler = () => {
       const { id } = parseRequestUrl();
@@ -91,13 +107,14 @@ const Products = {
     const saleValue = Math.floor(((price - salePrice) / price) * 100);
     const giftPoints = (onSale ? salePrice / 100 : price / 100).toFixed(1);
     const onStock = stock >= 1;
+    const { promoImg, promoLink } = Products.displayPromotion();
 
     if (product.error) return `<div>${product.error}</div>`;
 
     return `
       <section class="products">
-        <a href="/#/promo-outlet/">
-        <div style='background-position: center top; background-repeat: no-repeat;  background-image: url("/img/promo-2.png"); height: 10rem'></div>
+        <a href="${promoLink}">
+        <div style='background-position: center top; background-repeat: no-repeat;  background-image: url("${promoImg}"); height: 10rem'></div>
         </a>
         <div class="products-container wrapper">
           <header class="products__header">

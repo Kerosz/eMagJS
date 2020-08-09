@@ -65,6 +65,13 @@ const Cart = {
         Cart.removeFromCart(id);
       });
     });
+
+    // Handle redirect to checkout page
+    const continueButton = document.querySelector('[data-checkout]');
+
+    continueButton.addEventListener('click', () => {
+      document.location.hash = '/signin';
+    });
   },
 
   render: async () => {
@@ -136,9 +143,9 @@ const Cart = {
 
                         return `
                               <li class="cart__item">
-                                <div class="cart__item-image">
+                                <a href="/#/product/${id}" class="cart__item-image">
                                   <img src="${img}" alt="${name}"/>
-                                </div>
+                                </a>
                                 <div class="cart__item-group">
                                   <h3 class="cart__item-title">
                                     <a href="/#/product/${id}">${name}</a>
@@ -147,7 +154,7 @@ const Cart = {
                                     <div class="cart__item-stock">
                                       <span>Disponibility: ${
                                         onStock
-                                          ? '<span style="color: #009900; font-weight: 500;">In Stock</span>'
+                                          ? `<span style="color: #009900; font-weight: 500;" title="${stock} items">In Stock</span>`
                                           : '<span style="color: #EF2100; font-weight: 500;">No Stock</span>'
                                       }</span>
                                       <span>
@@ -232,7 +239,7 @@ const Cart = {
                         <span>Total:</span>
                         <span>${productCost + deliveryCost} Lei</span>
                       </div>
-                      <button class="cart__summary-btn btn-emag" data-addButton>
+                      <button class="cart__summary-btn btn-emag" data-checkout>
                         <div class="red">>></div>
                         <span>Continue</span>
                       </button>

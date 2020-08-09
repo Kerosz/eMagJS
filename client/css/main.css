@@ -118,6 +118,18 @@ body {
   padding-right: 1rem;
 }
 
+.notfound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.notfound > img {
+  max-height: 55rem;
+}
+
 /*****************/
 /* HEADER Syles */
 /***************/
@@ -125,7 +137,7 @@ body {
 .header {
   grid-area: header;
   width: 100%;
-  background: #ffffff;
+  background: #f7f7f7;
 }
 
 .header-container {
@@ -416,7 +428,7 @@ body {
 .footer {
   grid-area: footer;
   width: 100%;
-  background: #ededed;
+  background: #f7f7f7;
   padding: 1rem 0;
 }
 

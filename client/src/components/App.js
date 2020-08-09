@@ -2,16 +2,19 @@ import Home from '../pages/Home';
 import Products from '../pages/Products';
 import Account from '../pages/Account';
 import Cart from '../pages/Cart';
+import Signin from '../pages/Signin';
 import NotFound from '../pages/NotFound';
 import { parseRequestUrl } from '../Config';
 
 const App = {
   routes: {
     '/': Home,
+    '/not-found': NotFound,
     '/myaccount': Account,
     '/product/:id': Products,
     '/cart/:id': Cart,
     '/cart': Cart,
+    '/signin': Signin,
   },
 
   router: () => {

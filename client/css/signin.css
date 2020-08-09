@@ -1,0 +1,81 @@
+.signin {
+  background: #fafafa;
+  height: 100%;
+}
+
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.signin__branding {
+  margin-bottom: 2.5rem;
+}
+
+.signin__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem 3.5rem 2rem;
+  background: #ffffff;
+  border-radius: 0.4rem;
+  box-shadow: 1px 2px 5px hsl(0, 0%, 80%);
+  margin-bottom: 2rem;
+}
+
+.sigin__title {
+  display: flex;
+  align-items: center;
+  color: #999;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 4rem;
+}
+
+.signin__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin__form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 37rem;
+  min-width: 34rem;
+  margin-bottom: 1.35rem;
+}
+
+.signin__label {
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.signin__input {
+  outline: none;
+  border: 0.1rem solid #e0e0e0;
+  border-radius: 50rem;
+  width: 100%;
+  padding: 1.35rem 1rem;
+}
+
+.signin__btn {
+  width: 100%;
+  border-radius: 50rem;
+  padding: 1.35rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.signin__note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.4rem;
+}
