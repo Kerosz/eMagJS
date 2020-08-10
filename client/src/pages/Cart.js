@@ -133,8 +133,8 @@ const Cart = {
                 <div class="cart__main">
                   <ul class="cart__list">
                     ${data
-                      .map((item) => {
-                        const {
+                      .map(
+                        ({
                           product: id,
                           name,
                           img,
@@ -143,10 +143,10 @@ const Cart = {
                           salePrice,
                           stock,
                           qty,
-                        } = item;
-                        const onStock = stock >= 1;
+                        }) => {
+                          const onStock = stock >= 1;
 
-                        return `
+                          return `
                               <li class="cart__item">
                                 <a href="/#/product/${id}" class="cart__item-image">
                                   <img src="${img}" alt="${name}"/>
@@ -164,9 +164,7 @@ const Cart = {
                                       }</span>
                                       <span>
                                         Qty <select id="${id}" data-qty>
-                                        ${[
-                                          ...Array(item.stock).keys(),
-                                        ].map((num) =>
+                                        ${[...Array(stock).keys()].map((num) =>
                                           qty === num + 1
                                             ? `<option selected value="${
                                                 num + 1
@@ -200,7 +198,8 @@ const Cart = {
                                 </div>
                               </li>
                             `;
-                      })
+                        }
+                      )
                       .join('')}
                   </ul>
                 ${

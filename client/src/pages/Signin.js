@@ -14,7 +14,8 @@ const Signin = {
         });
 
         if (data.error) {
-          alert(data.error);
+          const errorContainer = document.querySelector('[data-error]');
+          errorContainer.innerHTML = `<div><p>${data.error}</p></div>`;
         } else {
           setUserInfo(data);
           document.location.hash = '/myaccount';
@@ -29,7 +30,7 @@ const Signin = {
 
     return `
       <section class="signin">
-        <div class="signin-container wrapper">
+        <div class="signin-container">
           <a class="header__branding signin__branding" href="/#/" title="eMag - Buy with ease">
             <img src="./img/logo.svg" alt="eMag" />
           </a>
@@ -44,7 +45,9 @@ const Signin = {
                 <label for="password" class="signin__label">Your secret code</label>
                 <input type="password" name="password" class="signin__input" data-password/>
               </div>
+              <div class="signin__error" data-error></div>
               <button type="submit" class="btn-emag signin__btn">Sign in</button>
+
             </form>
             <p class="signin__note">You don't have an account? Don't worry! 
               <span>You can <a href="/#/register/">create a new account</a> and enjoy the goodies</span>

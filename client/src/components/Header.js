@@ -50,6 +50,7 @@ const Header = {
     const { human, cart, arrow } = Header.icons;
 
     return `
+    <header class="header">
       <div class="header-container wrapper">
       <a class="header__branding" href="/#/" title="eMag - Buy with ease">
         <img src="./img/logo.svg" alt="eMag" />
@@ -86,42 +87,43 @@ const Header = {
           </li>
         </ul>
       </nav>
-    </div>
-    <div class="header__menu">
-      <div class="header__menu-container wrapper">
-        <ul class="header__auxiliary">
-          <li class="header__auxiliary-item">
-            <a
-              href="/#/"
-              class="header__auxiliary-link btn"
-              title="Products"
-              >All Products</a
-            >
-          </li>
-          <li class="header__auxiliary-item">
-            <a
-              href="/#/"
-              class="header__auxiliary-link btn"
-              title="Electronics"
-              >Electronics</a
-            >
-          </li>
-          <li class="header__auxiliary-item">
-            <a href="/#/" class="header__auxiliary-link btn" title="Grocery"
-              >Grocery</a
-            >
-          </li>
-          <li class="header__auxiliary-item">
-            <a href="/#/" class="header__auxiliary-link btn" title="Auto"
-              >Auto</a
-            >
-          </li>
-        </ul>
-        <a href="/#/help" class="header__help btn" title="Help Desk"
-          >eMag Help</a
-        >
       </div>
-    </div>
+      <div class="header__menu">
+        <div class="header__menu-container wrapper">
+          <ul class="header__auxiliary">
+            <li class="header__auxiliary-item">
+              <a
+                href="/#/"
+                class="header__auxiliary-link btn"
+                title="Products"
+                >All Products</a
+              >
+            </li>
+            <li class="header__auxiliary-item">
+              <a
+                href="/#/"
+                class="header__auxiliary-link btn"
+                title="Electronics"
+                >Electronics</a
+              >
+            </li>
+            <li class="header__auxiliary-item">
+              <a href="/#/" class="header__auxiliary-link btn" title="Grocery"
+                >Grocery</a
+              >
+            </li>
+            <li class="header__auxiliary-item">
+              <a href="/#/" class="header__auxiliary-link btn" title="Auto"
+                >Auto</a
+              >
+            </li>
+          </ul>
+          <a href="/#/help" class="header__help btn" title="Help Desk"
+            >eMag Help</a
+          >
+        </div>
+      </div>
+    </header>
     `;
   },
 };

@@ -105,7 +105,8 @@ const Products = {
 
   render: async () => {
     const { id } = parseRequestUrl();
-    const product = await Api.getProduct(id.toUpperCase());
+    const { promoImg, promoLink } = Products.displayPromotion();
+    const { handleShippingDate } = Products;
     const {
       name,
       img,
@@ -115,7 +116,8 @@ const Products = {
       rating,
       reviews,
       stock,
-    } = product;
+      error,
+    } = await Api.getProduct(id.toUpperCase());
     const {
       truck,
       lighting,
@@ -129,10 +131,8 @@ const Products = {
     const saleValue = Math.floor(((price - salePrice) / price) * 100);
     const giftPoints = (onSale ? salePrice / 100 : price / 100).toFixed(1);
     const onStock = stock >= 1;
-    const { promoImg, promoLink } = Products.displayPromotion();
-    const { handleShippingDate } = Products;
 
-    if (product.error) return `<div>${product.error}</div>`;
+    if (error) return `<div>${error}</div>`;
 
     return `
       <section class="products">
