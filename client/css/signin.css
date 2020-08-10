@@ -8,11 +8,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 0;
+  padding: 6rem 0;
 }
 
 .signin__branding {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .signin__panel {
@@ -32,7 +32,7 @@
   color: #999;
   font-size: 2.5rem;
   font-weight: 400;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
 }
 
 .signin__form {
@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 37rem;
+  width: 36rem;
   min-width: 34rem;
   margin-bottom: 1.35rem;
 }
@@ -59,6 +59,7 @@
 .signin__input {
   outline: none;
   border: 0.1rem solid #e0e0e0;
+  background: transparent;
   border-radius: 50rem;
   width: 100%;
   padding: 1.35rem 1rem;
@@ -78,4 +79,13 @@
   flex-direction: column;
   align-items: center;
   font-size: 1.4rem;
+}
+
+.signin__note span > a {
+  color: #0082e6;
+  font-weight: 700;
+}
+
+.signin__note span > a:hover {
+  color: #4956c2;
 }

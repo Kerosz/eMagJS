@@ -1,6 +1,12 @@
+import { getUserInfo } from '../LocalStorage';
+
 const Account = {
   render: () => {
-    return `<h1>Account page</h1>`;
+    const { username } = getUserInfo();
+
+    return `
+      ${username ? `<h1>Welcome ${username}</h1>` : `<h1>Account page</h1>`}
+    `;
   },
 };
 

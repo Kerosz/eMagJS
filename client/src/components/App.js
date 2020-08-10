@@ -5,6 +5,9 @@ import Cart from '../pages/Cart';
 import Signin from '../pages/Signin';
 import NotFound from '../pages/NotFound';
 import { parseRequestUrl } from '../Config';
+import Header from './Header';
+import Register from '../pages/Register';
+import Checkout from '../pages/Checkout';
 
 const App = {
   routes: {
@@ -15,6 +18,8 @@ const App = {
     '/cart/:id': Cart,
     '/cart': Cart,
     '/signin': Signin,
+    '/register': Register,
+    '/checkout': Checkout,
   },
 
   router: () => {
@@ -30,7 +35,11 @@ const App = {
 
   render: async () => {
     const page = App.router();
+
+    const header = document.querySelector('[data-head]');
     const root = document.querySelector('[data-root]');
+
+    header.innerHTML = await Header.render();
     root.innerHTML = await page.render();
 
     if (page.componentDidUpdate) {

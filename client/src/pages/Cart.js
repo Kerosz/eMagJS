@@ -1,7 +1,7 @@
 import App from '../components/App';
 import Api from '../Api';
 import { parseRequestUrl } from '../Config';
-import { getCartItems, setCartItems } from '../LocalStorage';
+import { getCartItems, setCartItems, getUserInfo } from '../LocalStorage';
 
 const Cart = {
   addToCart: (newItem, updateCart = false) => {
@@ -68,9 +68,13 @@ const Cart = {
 
     // Handle redirect to checkout page
     const continueButton = document.querySelector('[data-checkout]');
+    const { username } = getUserInfo();
 
     continueButton.addEventListener('click', () => {
-      document.location.hash = '/signin';
+      // eslint-disable-next-line no-unused-expressions
+      username
+        ? (document.location.hash = '/checkout')
+        : (document.location.hash = '/signin');
     });
   },
 

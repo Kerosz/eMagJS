@@ -59,6 +59,31 @@ const Api = {
       return { error: err.response.data.message || err.message };
     }
   },
+
+  signin: async ({ username, password }) => {
+    try {
+      const response = await axios({
+        url: `${apiUrl}/api/users/signin`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          username,
+          password,
+        },
+      });
+
+      if (response.statusText !== 'OK') {
+        throw new Error(response.data.message);
+      }
+
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      return { error: err.response.data.message };
+    }
+  },
 };
 
 export default Api;
