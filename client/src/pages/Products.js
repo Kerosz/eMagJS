@@ -1,3 +1,4 @@
+import moment from 'moment';
 import Api from '../Api';
 import Rating from '../components/Rating';
 import { parseRequestUrl } from '../Config';
@@ -70,6 +71,27 @@ const Products = {
     return promotions[randomPromo];
   },
 
+  handleShippingDate: (type) => {
+    const standardShippment = () => {
+      const standardStart = moment().add(2, 'days').format('dddd, DD MMM');
+      const standardEnds = moment().add(5, 'days').format('dddd, DD MMM');
+
+      return `${standardStart}. – ${standardEnds}.`;
+    };
+
+    const expressShippment = () => {
+      const expressStart = moment().add(1, 'days').format('dddd, DD MMM');
+      const expressEnd = moment().add(2, 'days').format('dddd, DD MMM');
+
+      return `${expressStart}. – ${expressEnd}.`;
+    };
+
+    return {
+      standard: standardShippment(),
+      express: expressShippment(),
+    }[type];
+  },
+
   componentDidUpdate: () => {
     const onClickHandler = () => {
       const { id } = parseRequestUrl();
@@ -108,6 +130,7 @@ const Products = {
     const giftPoints = (onSale ? salePrice / 100 : price / 100).toFixed(1);
     const onStock = stock >= 1;
     const { promoImg, promoLink } = Products.displayPromotion();
+    const { handleShippingDate } = Products;
 
     if (product.error) return `<div>${product.error}</div>`;
 
@@ -153,7 +176,9 @@ const Products = {
                   <div class="delivery__info">
                     <ul>
                       <li class="delivery__info-type">Standard delivery</li>
-                      <li class="delivery__info-arrival">Saturday, 8 Aug. – Monday, 10 Aug.</li>
+                      <li class="delivery__info-arrival">${handleShippingDate(
+                        'standard'
+                      )}</li>
                     </ul>
                     <span class="delivery__cost">15 Lei</span>
                   </div>
@@ -163,7 +188,9 @@ const Products = {
                   <div class="delivery__info border">
                     <ul>
                       <li class="delivery__info-type">Express delivery</li>
-                      <li class="delivery__info-arrival">Friday, 7 Aug. – Saturday, 8 Aug.</li>
+                      <li class="delivery__info-arrival">${handleShippingDate(
+                        'express'
+                      )}</li>
                     </ul>
                     <span class="delivery__cost">34 Lei</span>
                   </div>

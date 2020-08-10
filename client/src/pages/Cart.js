@@ -102,10 +102,11 @@ const Cart = {
 
     const data = await getCartItems();
     const productCost = data.reduce((total, currentItem) => {
-      if (currentItem.onSale) {
-        return total + currentItem.salePrice * currentItem.qty;
-      }
-      return total + currentItem.price * currentItem.qty;
+      const { onSale, salePrice, price, qty } = currentItem;
+
+      if (onSale) return total + salePrice * qty;
+
+      return total + price * qty;
     }, 0);
     const deliveryCost = 15;
 
