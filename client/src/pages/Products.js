@@ -74,7 +74,7 @@ const Products = {
   handleShippingDate: (type) => {
     const standardShippment = () => {
       const standardStart = moment().add(2, 'days').format('dddd, DD MMM');
-      const standardEnds = moment().add(5, 'days').format('dddd, DD MMM');
+      const standardEnds = moment().add(4, 'days').format('dddd, DD MMM');
 
       return `${standardStart}. – ${standardEnds}.`;
     };
