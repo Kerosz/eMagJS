@@ -99,6 +99,15 @@ body {
   );
 }
 
+.btn-s {
+  color: #3065d0;
+  font-size: 1.5rem;
+  padding: 0.4rem 0.7rem;
+}
+.btn-s:hover {
+  text-decoration: underline;
+}
+
 .cta {
   color: #302e2d;
   padding: 1.2rem 1.6rem;
@@ -167,9 +176,15 @@ body {
 }
 
 .header__nav-item {
+  position: relative;
   margin: 1rem 1.5rem;
   list-style: none;
+  padding: 1rem 0;
 }
+.header__nav-item:hover .header__nav-detail {
+  display: flex;
+}
+
 .header__nav-item:last-of-type {
   margin-right: 0;
 }
@@ -206,6 +221,43 @@ body {
   color: #565656;
   margin-left: 0.4rem;
   margin-right: 0;
+}
+
+.header__nav-detail {
+  width: 27rem;
+  display: none;
+  flex-direction: column;
+  padding: 1rem;
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  background: #f7f7f7;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 20px 0 hsla(0, 0%, 0%, 0.15);
+}
+
+.header__nav-detail--item {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-detail--item > p {
+  margin-left: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.header__nav-detail--item > svg {
+  font-size: 5rem;
+  color: #3065d0;
+}
+
+.header__nav-detail--item > a:last-of-type {
+  margin-left: 1rem;
+}
+
+.header__nav-detail--item .btn-header {
+  padding: 0.6rem 2rem;
 }
 
 .header__menu {

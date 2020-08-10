@@ -56,8 +56,12 @@ const App = {
 
   // Custom rerender
   rerender: async (component) => {
-    document.querySelector('[data-root]').innerHTML = await component.render();
-    await component.componentDidUpdate();
+    document.querySelector('[data-root]').innerHTML =
+      Header.render() + (await component.render()) + Footer.render();
+
+    if (component.componentDidUpdate) {
+      await component.componentDidUpdate();
+    }
   },
 };
 

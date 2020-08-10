@@ -46,6 +46,8 @@ const Cart = {
     qtySelect.forEach((select) => {
       Array.from(select).forEach((option) => {
         option.addEventListener('click', (e) => {
+          e.preventDefault();
+
           const newQty = Number(e.target.value);
           const matchItem = getCartItems().find(
             (item) => item.product === select.id
@@ -67,15 +69,17 @@ const Cart = {
     });
 
     // Handle redirect to checkout page
-    const continueButton = document.querySelector('[data-checkout]');
-    const { username } = getUserInfo();
+    if (getCartItems().length > 0) {
+      const continueButton = document.querySelector('[data-checkout]');
+      continueButton.addEventListener('click', () => {
+        const { username } = getUserInfo();
 
-    continueButton.addEventListener('click', () => {
-      // eslint-disable-next-line no-unused-expressions
-      username
-        ? (document.location.hash = '/checkout')
-        : (document.location.hash = '/signin');
-    });
+        // eslint-disable-next-line no-unused-expressions
+        username
+          ? (document.location.hash = '/checkout')
+          : (document.location.hash = '/signin');
+      });
+    }
   },
 
   render: async () => {

@@ -7,7 +7,7 @@ const Register = {
           <img src="./img/logo.svg" alt="eMag" />
         </a>
         <div class="signin__panel">
-          <h1 class="sigin__title">Hello friend,</h1>
+          <h1 class="sigin__title">Welcome friend,</h1>
           <form action="POST" class="signin__form" data-form>
             <div class="signin__form-container">
               <label for="username" class="signin__label">Your neat username</label>
