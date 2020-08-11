@@ -1,7 +1,15 @@
-import { getUserInfo } from '../LocalStorage';
+import { getUserInfo, getCartItems } from '../LocalStorage';
 
 const Header = {
   icons: {
+    headset: `
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-headset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M8 1a5 5 0 0 0-5 5v4.5H2V6a6 6 0 1 1 12 0v4.5h-1V6a5 5 0 0 0-5-5z"/>
+      <path d="M11 8a1 1 0 0 1 1-1h2v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8zM5 8a1 1 0 0 0-1-1H2v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V8z"/>
+      <path fill-rule="evenodd" d="M13.5 8.5a.5.5 0 0 1 .5.5v3a2.5 2.5 0 0 1-2.5 2.5H8a.5.5 0 0 1 0-1h3.5A1.5 1.5 0 0 0 13 12V9a.5.5 0 0 1 .5-.5z"/>
+      <path d="M6.5 14a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1z"/>
+      </svg>
+    `,
     human: `
       <svg
       width="1.7em"
@@ -53,7 +61,9 @@ const Header = {
 
   render: () => {
     const { username } = getUserInfo();
-    const { human, account, cart, arrow } = Header.icons;
+    const { human, account, cart, arrow, headset } = Header.icons;
+    const basket = getCartItems();
+    console.log(basket.length);
 
     return `
     <header class="header">
@@ -63,26 +73,39 @@ const Header = {
       </a>
       <nav class="header__nav-container">
         <ul class="header__nav">
-          ${
-            username
-              ? `
-              <li class="header__nav-item">
-                <a href="/#/myaccount/" class="header__nav-link">
-                  ${human}
-                  My Account
-                  ${arrow}
-                </a>
-              </li>
-              `
-              : `
-              <li class="header__nav-item">
-                <a href="/#/signin/" class="header__nav-link">
-                  ${human}
-                  My Account
-                  ${arrow}
-                </a>
-                <ul class="header__nav-detail">
+          <li class="header__nav-item">
+            <a href="/#/myaccount" class="header__nav-link">
+              ${human}
+              My Account
+              ${arrow}
+            </a>
+            <ul class="header__nav-detail">
+            ${
+              username
+                ? `
+                  <li class="header__nav-detail--title">
+                      Hi there, ${username}
+                  </li>
+                  <div class="products-divider"></div>
                   <li class="header__nav-detail--item">
+                    <a href="/#/myaccount" class="header__nav-detail--link">My account</a>
+                  </li>
+                  <li class="header__nav-detail--item">
+                    <a href="/#/myaccount/orders" class="header__nav-detail--link">My orders</a>
+                  </li>
+                  <li class="header__nav-detail--item">
+                    <a href="/#/myaccount/address" class="header__nav-detail--link">My address</a>
+                  </li>
+                  <li class="header__nav-detail--item">
+                    <a href="/#/myaccount/wishlist" class="header__nav-detail--link">My wishlist</a>
+                  </li>
+                  <div class="products-divider"></div>
+                  <li class="header__nav-detail--item">
+                    <button href="/#/" class="header__nav-detail--link">Log Out</button>
+                  </li>
+                `
+                : `
+                  <li class="header__nav-detail--item m-b1">
                     ${account}
                     <p>Log in your eMag account and have full control of our awesome offers</p>
                   </li>
@@ -91,18 +114,44 @@ const Header = {
                     <a href="/#/signin" class="btn-header btn-emag">
                       <span>Sign In</span>
                     </a>
-                    <a href="/#/register/" class="btn-s">Register</a>
+                    <a href="/#/register" class="btn-s">Register</a>
                   </li>
-                </ul>
-              </li>
-            `
-          }
+              `
+            }
+            </ul>
+          </li>
           <li class="header__nav-item">
-            <a href="/#/cart/" class="header__nav-link">
+            <a href="/#/cart" class="header__nav-link">
               ${cart}
               Basket
               ${arrow}
             </a>
+            ${
+              basket.length > 0
+                ? `
+              <div class="header__nav-counter">
+                <span>${basket.length}</span>
+              </div>`
+                : ''
+            }
+
+            <ul class="header__nav-detail basket">
+              <li class="header__nav-detail--item">
+                ${
+                  basket.length > 0
+                    ? `<p>You have <span>${basket.length}</span> ${
+                        basket.length > 1 ? 'products' : 'product'
+                      } in basket</p>`
+                    : `<p>No products in the basket</p>`
+                }
+              </li>
+              <li class="header__nav-detail--item">
+                <a href="/#/cart" class="cart__summary-btn btn-emag btn-detail">
+                  <div class="red">>></div>
+                  <span>Cart details</span>
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -150,7 +199,7 @@ const Header = {
             </li>
           </ul>
           <a href="/#/help" class="header__help btn" title="Help Desk"
-            >eMag Help</a
+            >${headset} eMAG Help</a
           >
         </div>
       </div>

@@ -38,7 +38,7 @@ body {
     'main'
     'footer';
   grid-template-columns: 1fr;
-  grid-template-rows: 12.5rem 1fr 23rem;
+  grid-template-rows: 12.25rem 1fr 23rem;
   height: 100%;
 }
 
@@ -103,6 +103,7 @@ body {
   color: #3065d0;
   font-size: 1.5rem;
   padding: 0.4rem 0.7rem;
+  margin: 0 0.5rem;
 }
 .btn-s:hover {
   text-decoration: underline;
@@ -137,6 +138,14 @@ body {
 
 .notfound > img {
   max-height: 55rem;
+}
+
+.m-b1 {
+  margin-bottom: 1rem;
+}
+
+.m-t1 {
+  margin-top: 1rem;
 }
 
 /*****************/
@@ -229,16 +238,36 @@ body {
   flex-direction: column;
   padding: 1rem;
   position: absolute;
-  top: 5rem;
+  top: 4.5rem;
   right: 0;
   background: #f7f7f7;
   border-radius: 0.4rem;
   box-shadow: 0 2px 20px 0 hsla(0, 0%, 0%, 0.15);
 }
 
+.header__nav-detail .products-divider {
+  margin: 0.5rem 0;
+}
+
+.header__nav-detail--title {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
 .header__nav-detail--item {
   display: flex;
   align-items: center;
+  max-height: 3.35rem;
+}
+
+.header__nav-detail--link {
+  font-size: 1.5rem;
+  color: #302e2d;
+  margin: 0.5rem 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .header__nav-detail--item > p {
@@ -252,13 +281,69 @@ body {
   color: #3065d0;
 }
 
-.header__nav-detail--item > a:last-of-type {
-  margin-left: 1rem;
+.header__nav-detail--item .btn-header {
+  padding: 0.6rem 2.35rem;
 }
 
-.header__nav-detail--item .btn-header {
-  padding: 0.6rem 2rem;
+/* BASKET TEMPORARY STYLES */
+
+.header__nav-counter {
+  position: absolute;
+  top: 0.8rem;
+  left: 1.5rem;
+  background: #f0333d;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50rem;
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: 700;
 }
+
+.header__nav-counter > span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-0.1rem);
+}
+
+.header__nav-detail--item .btn-detail {
+  width: 100%;
+  padding: 0.7rem;
+}
+
+.header__nav-detail--item .btn-detail .red {
+  padding: 0.7rem 1.5rem;
+}
+
+.header__nav-detail--item .btn-detail > span {
+  font-size: 1.5rem;
+}
+
+.header__nav-item .basket {
+  width: 20rem;
+}
+
+.header__nav-item .basket .header__nav-detail--item {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 0.2rem 0;
+}
+
+.header__nav-item .basket .header__nav-detail--item > p {
+  margin: 0;
+  margin-bottom: 0.7rem;
+}
+
+.header__nav-detail--item p > span {
+  font-weight: 700;
+}
+
+/* end BASKET TEMPORARY STYLES */
 
 .header__menu {
   background: linear-gradient(
@@ -290,9 +375,16 @@ body {
 
 .header__auxiliary-link,
 .header__help {
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: #ffffff;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
+}
+
+.header__help > svg {
+  font-size: 1.9rem;
+  margin-right: 0.5rem;
 }
 
 /****************/
