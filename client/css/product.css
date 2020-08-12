@@ -92,16 +92,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   max-width: 45rem;
-  min-width: 34rem;
+  width: 35rem;
 }
 
 .productSlider__inner {
+  width: 100%;
   max-width: 38rem;
   min-width: 30rem;
   display: flex;
-  flex-wrap: nowrap;
   overflow: hidden;
 }
 

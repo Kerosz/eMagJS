@@ -1,5 +1,6 @@
 import Api from '../Api';
 import Rating from '../components/Rating';
+import Newsletter from '../components/Newsletter';
 
 const Home = {
   render: async () => {
@@ -79,6 +80,7 @@ const Home = {
             .join('')}
         </ul>
       </section>
+      ${Newsletter.render()}
     </main>
     `;
   },

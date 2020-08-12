@@ -388,6 +388,18 @@ body {
   margin-right: 0.5rem;
 }
 
+@media only screen and (max-width: 847px) {
+  .header__menu {
+    display: none;
+  }
+  .page {
+    grid-template-rows: 7rem 1fr 23rem;
+  }
+  .header-container {
+    height: 100%;
+  }
+}
+
 /****************/
 /* MAIN Styles */
 /**************/
@@ -564,6 +576,113 @@ body {
   );
 }
 
+/* Newsletter section */
+
+.newsletter {
+  width: 100%;
+  margin-top: 9rem;
+  margin-bottom: 2rem;
+}
+
+.newsletter-container {
+  display: flex;
+  height: 28.5rem;
+  background: linear-gradient(
+    to right,
+    hsl(357.9, 100%, 55.7%) 5%,
+    hsl(310.9, 52.4%, 41.2%) 35%,
+    hsl(268.8, 43.9%, 44.7%) 45%,
+    hsl(230, 54.1%, 52.2%) 55%,
+    hsl(206.1, 100%, 45.1%) 70%
+  );
+}
+
+.newsletter__image {
+  transform: translateY(-4.2rem);
+}
+
+.newsletter__content {
+  color: #ffffff;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.newsletter__title {
+  font-size: 3.3rem;
+  font-weight: 500;
+  line-height: 4.5rem;
+}
+
+.newsletter__agreement {
+  font-size: 1.3rem;
+  margin-bottom: 3.5rem;
+}
+
+.newsletter__form {
+  display: flex;
+  width: 100%;
+}
+
+.newsletter__form-field {
+  display: block;
+  width: 30%;
+  margin: 0 0.5rem;
+  padding: 0.9rem;
+  color: hsl(0, 0%, 60%);
+  background: hsl(0, 0%, 99.6%);
+  border: 0.1rem solid hsl(0, 0%, 80%);
+  border-radius: 50rem;
+}
+
+.newsletter__btn {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: hsl(8.1, 92.7%, 48.6%);
+  border-color: hsl(8.1, 92.7%, 48.6%);
+}
+
+.newsletter__btn:hover {
+  background: hsl(8.2, 92.9%, 38.6%);
+  border-color: hsl(8.2, 92.9%, 38.6%);
+}
+
+@media only screen and (max-width: 1180px) {
+  .newsletter-container {
+    background: hsl(206.1, 100%, 45.1%) 70%;
+  }
+  .newsletter__image {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 715px) {
+  .newsletter-container {
+    height: 33rem;
+  }
+  .newsletter__form {
+    flex-direction: column;
+    width: 100%;
+  }
+  .newsletter__form-field {
+    margin: 0.5rem;
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .newsletter__title {
+    font-size: 2.9rem;
+    line-height: 3.2rem;
+  }
+
+  .newsletter__agreement {
+    margin-bottom: 1.5rem;
+  }
+}
+
 /******************/
 /* FOOTER Styles */
 /****************/
@@ -571,7 +690,7 @@ body {
 .footer {
   grid-area: footer;
   width: 100%;
-  background: #f7f7f7;
+  background: #ededed;
   padding: 1rem 0;
 }
 

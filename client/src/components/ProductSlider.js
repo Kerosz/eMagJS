@@ -30,6 +30,14 @@ const ProductSlider = {
         thumbnail.classList.add('active');
         featuredSelect.src = thumbnail.src;
       });
+      thumbnail.addEventListener('click', () => {
+        if (activeImgSelect.length > 0) {
+          activeImgSelect[0].classList.remove('active');
+        }
+
+        thumbnail.classList.add('active');
+        featuredSelect.src = thumbnail.src;
+      });
     });
 
     controlsSelect.forEach((control) => {
@@ -54,19 +62,19 @@ const ProductSlider = {
         imgArr[0]
       }" alt="${name}" data-featured/>
       <div class="productSlider__container">
-        <button data-controls="left">${left}</button>
-        <div class="productSlider__inner" data-inner>
-         <img class="productSlider__thumbnail active" src='${
-           imgArr[0]
-         }' alt='${name}' data-thumbnail/>
-          ${imgArr
-            .slice(1)
-            .map((img) => {
-              return `<img class="productSlider__thumbnail" src='${img}' alt='${name}' data-thumbnail/>`;
-            })
-            .join('')}
-        </div>
-         <button data-controls="right">${right}</button>
+      <button data-controls="left">${left}</button>
+      <div class="productSlider__inner" data-inner>
+       <img class="productSlider__thumbnail active" src='${
+         imgArr[0]
+       }' alt='${name}' data-thumbnail/>
+        ${imgArr
+          .slice(1)
+          .map((img) => {
+            return `<img class="productSlider__thumbnail" src='${img}' alt='${name}' data-thumbnail/>`;
+          })
+          .join('')}
+      </div>
+       <button data-controls="right">${right}</button>
       </div>
     `;
   },

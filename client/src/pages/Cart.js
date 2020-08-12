@@ -153,7 +153,7 @@ const Cart = {
                           return `
                               <li class="cart__item">
                                 <a href="/#/product/${id}" class="cart__item-image">
-                                  <img src="${img}" alt="${name}"/>
+                                  <img src="${img[0]}" alt="${name}"/>
                                 </a>
                                 <div class="cart__item-group">
                                   <h3 class="cart__item-title">
@@ -163,7 +163,7 @@ const Cart = {
                                     <div class="cart__item-stock">
                                       <span>Disponibility: ${
                                         onStock
-                                          ? `<span style="color: #009900; font-weight: 500;" title="${stock} items">In Stock</span>`
+                                          ? `<span style="color: #009900; font-weight: 500;" title="${stock} products">In Stock</span>`
                                           : '<span style="color: #EF2100; font-weight: 500;">No Stock</span>'
                                       }</span>
                                       <span>
