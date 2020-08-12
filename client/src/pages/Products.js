@@ -2,6 +2,7 @@ import moment from 'moment';
 import Api from '../Api';
 import Rating from '../components/Rating';
 import { parseRequestUrl } from '../Config';
+import ProductSlider from '../components/ProductSlider';
 
 const Products = {
   icons: {
@@ -93,14 +94,17 @@ const Products = {
   },
 
   componentDidUpdate: () => {
+    // Adds product to basket
     const onClickHandler = () => {
       const { id } = parseRequestUrl();
       document.location.hash = `/cart/${id}`;
     };
-
     document
       .querySelector('[data-addButton]')
       .addEventListener('click', onClickHandler);
+
+    // Changes the product featured image
+    ProductSlider.update();
   },
 
   render: async () => {
@@ -150,8 +154,12 @@ const Products = {
           <div class="products-divider"></div>
           <div class="products__details">
             <div class="products__details-showcase">
-              <img src="${img}" alt="${name}"/>
-              ${onSale ? `<div>${saleValue}% off<br /> get it now</div>` : ''}
+              ${ProductSlider.render({ img, name })}
+              ${
+                onSale
+                  ? `<div class="promotion">${saleValue}% off<br /> get it now</div>`
+                  : ''
+              }
             </div>
             <div class="products__details-more">
               <div class="products__details-more--reviews">

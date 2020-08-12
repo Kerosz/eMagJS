@@ -1,0 +1,129 @@
+.account {
+  background: #e9ebee;
+}
+
+.account-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 4rem;
+}
+
+.account__sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 2 30rem;
+  min-width: 25rem;
+  margin-right: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.account__menu {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 1.5rem 1rem;
+  box-shadow: 1px 1px 3px hsla(0, 0%, 0%, 0.15);
+  border-radius: 0.3rem;
+}
+
+.account__item,
+.account__title {
+  border-bottom: 0.1rem solid #e0e0e0;
+  padding: 1rem 0;
+}
+
+.account__item:last-of-type {
+  border: none;
+}
+
+.account__title {
+  font-weight: 700;
+  color: #ad9388;
+  padding-bottom: 1.5rem;
+}
+
+.account__item {
+  margin: 0.5rem 0;
+}
+
+.account__link {
+  color: #0082e6;
+  font-weight: 500;
+  padding: 1rem 0;
+}
+
+.account__link:hover {
+  text-decoration: underline;
+  color: #5251bc;
+}
+
+.account__content {
+  display: flex;
+  flex-direction: column;
+  flex: 2 1 10rem;
+  min-width: 50rem;
+}
+
+.account__panel {
+  position: relative;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-shadow: 1px 1px 3px hsla(0, 0%, 0%, 0.15);
+  border-radius: 0.3rem;
+}
+
+.account__panel-title {
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+}
+
+.account__panel-body {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.account__panel-image {
+  display: flex;
+  justify-content: center;
+  width: 20rem;
+  margin-right: 2rem;
+}
+
+.account__panel-image > img {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50rem;
+}
+
+.account__panel-data > p {
+  margin: 1rem 0;
+}
+
+.account__panel-data p > a {
+  color: #0082e6;
+}
+
+.account__panel-data p > a:hover {
+  text-decoration: underline;
+}
+
+.account__panel-field--name {
+  display: inline-block;
+  min-width: 7rem;
+  color: #807775;
+}
+
+.accout__panel-action {
+  color: #0082e6;
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1.8rem 1rem;
+  border-top: #e0e0e0 solid 0.1rem;
+}
+
+.accout__panel-action:hover {
+  background: #f4f6ff;
+}

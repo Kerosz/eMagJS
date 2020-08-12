@@ -47,6 +47,7 @@ const App = {
     if (page.componentDidUpdate) {
       await page.componentDidUpdate();
     }
+    Header.componentDidUpdate();
 
     // Checks for changes in the URL and rerenders
     window.onhashchange = () => {

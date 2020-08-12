@@ -243,6 +243,7 @@ body {
   background: #f7f7f7;
   border-radius: 0.4rem;
   box-shadow: 0 2px 20px 0 hsla(0, 0%, 0%, 0.15);
+  z-index: 1000;
 }
 
 .header__nav-detail .products-divider {
@@ -454,9 +455,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.3rem;
-  /* font-weight: 500; */
   color: #ffffff;
-  /* border: #ededed solid 0.1rem; */
   box-shadow: 0 2px 6px -2px hsla(0, 0%, 0%, 0.35);
   border-radius: 0.3rem;
 }

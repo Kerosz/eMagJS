@@ -70,6 +70,7 @@
 
 .signin__error {
   width: 95%;
+  max-width: 35rem;
   text-align: center;
 }
 

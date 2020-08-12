@@ -1,5 +1,34 @@
+import Api from '../Api';
+import { getUserInfo, setUserInfo } from '../LocalStorage';
+
 const Register = {
+  componentDidUpdate: () => {
+    document
+      .querySelector('[data-form]')
+      .addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = await Api.register({
+          username: document.querySelector('[data-username]').value,
+          email: document.querySelector('[data-email]').value,
+          password: document.querySelector('[data-password]').value,
+        });
+
+        if (data.error) {
+          const errorContainer = document.querySelector('[data-error]');
+          errorContainer.innerHTML = `<div><p>${data.error}</p></div>`;
+        } else {
+          setUserInfo(data);
+          document.location.hash = '/';
+        }
+      });
+  },
+
   render: () => {
+    if (getUserInfo().username) {
+      document.location.hash = '/';
+    }
+
     return `
     <section class="signin">
       <div class="signin-container wrapper">
@@ -23,7 +52,6 @@ const Register = {
             </div>
             <div class="signin__error" data-error></div>
             <button type="submit" class="btn-emag signin__btn">Sign Up</button>
-
           </form>
           <p class="signin__note">You already have an account? Great! 
             <span>You can <a href="/#/signin/">sign in</a> and surf our store</span>

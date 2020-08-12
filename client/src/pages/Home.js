@@ -37,7 +37,7 @@ const Home = {
                       : ''
                   }
                   <a href="/#/product/${id}" class="product__image" title="${name}">
-                    <img src="${img}" alt="${name}" />
+                    <img src="${img[0]}" alt="${name}" />
                   </a>
                   <a href="/#/product/${id}" class="product__title">
                     ${name}

@@ -1,4 +1,4 @@
-import { getUserInfo, getCartItems } from '../LocalStorage';
+import { getUserInfo, getCartItems, logOut } from '../LocalStorage';
 
 const Header = {
   icons: {
@@ -59,6 +59,17 @@ const Header = {
     `,
   },
 
+  componentDidUpdate: () => {
+    const { username } = getUserInfo();
+
+    if (username) {
+      document.querySelector('[data-logout]').addEventListener('click', () => {
+        logOut();
+        document.location.hash = '/';
+      });
+    }
+  },
+
   render: () => {
     const { username } = getUserInfo();
     const { human, account, cart, arrow, headset } = Header.icons;
@@ -101,7 +112,7 @@ const Header = {
                   </li>
                   <div class="products-divider"></div>
                   <li class="header__nav-detail--item">
-                    <button href="/#/" class="header__nav-detail--link">Log Out</button>
+                    <button href="/#/" class="header__nav-detail--link" data-logout>Log Out</button>
                   </li>
                 `
                 : `

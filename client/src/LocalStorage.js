@@ -36,3 +36,9 @@ export const getUserInfo = () => {
     ? JSON.parse(localStorage.getItem('userInfo'))
     : { username: '', password: '', email: '' };
 };
+
+export const logOut = () => {
+  return localStorage.getItem('userInfo')
+    ? localStorage.removeItem('userInfo')
+    : null;
+};
