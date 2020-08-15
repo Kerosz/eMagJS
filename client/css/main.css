@@ -184,7 +184,18 @@ body {
   display: flex;
 }
 
+.header__nav-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: cover;
+  border-radius: 50rem;
+  margin-right: 1rem;
+}
+
 .header__nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   margin: 1rem 1.5rem;
   list-style: none;
@@ -397,6 +408,12 @@ body {
   }
   .header-container {
     height: 100%;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .header__nav-link > span {
+    display: none;
   }
 }
 

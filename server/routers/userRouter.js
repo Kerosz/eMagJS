@@ -50,6 +50,7 @@ userRouter.post(
         phone: signinUser.phone,
         adresses: signinUser.adresses,
         date: signinUser.date,
+        avatar: signinUser.avatar,
         isAdmin: signinUser.isAdmin,
         token: signinUser.token,
       });

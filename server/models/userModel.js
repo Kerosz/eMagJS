@@ -33,6 +33,7 @@ const userSchema = new mongoose.Schema({
   phone: { type: Number, required: false, default: null },
   adresses: { type: Array, of: Object, required: false, default: [] },
   date: { type: Date, required: true, default: Date.now, immutable: true },
+  avatar: { type: String, required: true, default: '/img/avatar.jpg' },
   isAdmin: { type: Boolean, required: true, default: false },
 });
 

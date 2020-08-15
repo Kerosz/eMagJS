@@ -71,7 +71,7 @@ const Header = {
   },
 
   render: () => {
-    const { username } = getUserInfo();
+    const { username: user, avatar } = getUserInfo();
     const { human, account, cart, arrow, headset } = Header.icons;
     const basket = getCartItems();
     console.log(basket.length);
@@ -86,16 +86,22 @@ const Header = {
         <ul class="header__nav">
           <li class="header__nav-item">
             <a href="/#/myaccount" class="header__nav-link">
-              ${human}
+              ${
+                user
+                  ? `<img class="header__nav-icon" src="${avatar}" alt="Avatar"/>`
+                  : human
+              }
+              <span>
               My Account
               ${arrow}
+              </span>
             </a>
             <ul class="header__nav-detail">
             ${
-              username
+              user
                 ? `
                   <li class="header__nav-detail--title">
-                      Hi there, ${username}
+                      Hi there, ${user}
                   </li>
                   <div class="products-divider"></div>
                   <li class="header__nav-detail--item">
@@ -134,8 +140,10 @@ const Header = {
           <li class="header__nav-item">
             <a href="/#/cart" class="header__nav-link">
               ${cart}
+              <span>
               Basket
               ${arrow}
+              </span>
             </a>
             ${
               basket.length > 0

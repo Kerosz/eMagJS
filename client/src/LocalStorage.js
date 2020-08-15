@@ -20,6 +20,7 @@ export const setUserInfo = ({
   phone = '',
   adresses = '',
   date,
+  avatar,
   token = '',
   isAdmin = false,
 }) => {
@@ -35,6 +36,7 @@ export const setUserInfo = ({
       phone,
       adresses,
       date,
+      avatar,
       token,
       isAdmin,
     })

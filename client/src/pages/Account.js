@@ -1,8 +1,9 @@
 import { getUserInfo } from '../LocalStorage';
+import Sidebar from '../components/Sidebar';
 
 const Account = {
   render: () => {
-    const { username: user, email, name, alias, phone } = getUserInfo();
+    const { username: user, email, name, alias, phone, avatar } = getUserInfo();
 
     if (!user) {
       document.location.hash = '/signin';
@@ -11,28 +12,13 @@ const Account = {
     return `
       <section class="account">
         <div class="account-container wrapper">
-          <aside class="account__sidebar">
-            <ul class="account__menu">
-              <li class="account__title">
-                My Account
-              </li>
-              <li class="account__item">
-                <a href="/#/myaccount/orders" class="account__link">My Orders</a>
-              </li>
-              <li class="account__item">
-                <a href="/#/myaccount/address" class="account__link">My Address</a>
-              </li>
-              <li class="account__item">
-                <a href="/#/myaccount/wishlist" class="account__link">My Wishlist</a>
-              </li>
-            </ul>
-          </aside>
+        ${Sidebar.render()}
           <div class="account__content">
             <div class="account__panel">
               <p class="account__panel-title">Account Details</p>
               <div class="account__panel-body">
                 <div class="account__panel-image">
-                  <img src="/img/avatar.jpg" alt="Avatar"/>
+                  <img src="${avatar}" alt="Avatar"/>
                 </div>
                 <div class="account__panel-data">
                   <p>
@@ -73,6 +59,10 @@ const Account = {
                         </a>`
                     }
                   </p>
+                </div>
+                <div class="account__panel-stats">
+                    Thank you for being our client for
+                    <span>3 hours</span>
                 </div>
               </div>
               <a href="/#/" class="accout__panel-action">account data administration</a>

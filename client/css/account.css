@@ -5,7 +5,7 @@
 .account-container {
   display: flex;
   flex-wrap: wrap;
-  margin: 4rem;
+  margin: 4rem auto;
 }
 
 .account__sidebar {
@@ -69,18 +69,24 @@
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2rem 1rem 1rem 1rem;
   box-shadow: 1px 1px 3px hsla(0, 0%, 0%, 0.15);
   border-radius: 0.3rem;
 }
 
 .account__panel-title {
+  display: flex;
+  justify-content: center;
   font-size: 2.3rem;
   margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: #e9ebee 0.1rem solid;
 }
 
 .account__panel-body {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   margin-bottom: 2rem;
 }
 
@@ -98,7 +104,7 @@
 }
 
 .account__panel-data > p {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 .account__panel-data p > a {
@@ -107,6 +113,25 @@
 
 .account__panel-data p > a:hover {
   text-decoration: underline;
+}
+
+.account__panel-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  height: max-content;
+  max-width: 15rem;
+  border: 1px solid hsl(0, 0%, 93.3%);
+  border-radius: 0.6rem;
+  font-size: 1.3rem;
+}
+
+.account__panel-stats > span {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 1rem;
 }
 
 .account__panel-field--name {
@@ -126,4 +151,28 @@
 
 .accout__panel-action:hover {
   background: #f4f6ff;
+}
+
+@media only screen and (max-width: 1020px) {
+  .account-container {
+    flex-direction: column;
+  }
+
+  .account__sidebar {
+    margin: 0;
+    margin-bottom: 2.5rem;
+    flex: 0;
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .account__panel-body {
+    flex-direction: column;
+    min-height: 50rem;
+    justify-content: space-between;
+  }
+
+  .account__content {
+    min-width: 30rem;
+  }
 }
