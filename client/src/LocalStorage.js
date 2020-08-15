@@ -15,6 +15,11 @@ export const setUserInfo = ({
   username = '',
   email = '',
   password = '',
+  name = '',
+  alias = '',
+  phone = '',
+  adresses = '',
+  date,
   token = '',
   isAdmin = false,
 }) => {
@@ -25,6 +30,11 @@ export const setUserInfo = ({
       username,
       email,
       password,
+      name,
+      alias,
+      phone,
+      adresses,
+      date,
       token,
       isAdmin,
     })

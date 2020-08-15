@@ -2,7 +2,7 @@ import { getUserInfo } from '../LocalStorage';
 
 const Account = {
   render: () => {
-    const { username: user, email } = getUserInfo();
+    const { username: user, email, name, alias, phone } = getUserInfo();
 
     if (!user) {
       document.location.hash = '/signin';
@@ -41,11 +41,23 @@ const Account = {
                   </p>
                   <p>
                     <span class="account__panel-field--name">Alias:</span>
-                    <a href="/#/" class="account__panel-field-value">add alias</a>
+                    ${
+                      alias
+                        ? `<span class="account__panel-field-value">${alias}</span>`
+                        : `<a href='/#/' class='account__panel-field-value'>
+                          add alias
+                        </a>`
+                    }
                   </p>
                   <p>
                     <span class="account__panel-field--name">Name:</span>
-                    <a href="/#/" class="account__panel-field-value">add name</a>
+                    ${
+                      name
+                        ? `<span class="account__panel-field-value">${name}</span>`
+                        : `<a href='/#/' class='account__panel-field-value'>
+                          add name
+                        </a>`
+                    }
                   </p>
                   <p>
                     <span class="account__panel-field--name">Email:</span>
@@ -53,7 +65,13 @@ const Account = {
                   </p>
                   <p>
                     <span class="account__panel-field--name">Phone:</span>
-                    <a href="/#/" class="account__panel-field-value">add phone number</a>
+                    ${
+                      phone
+                        ? `<span class="account__panel-field-value">${phone}</span>`
+                        : `<a href='/#/' class='account__panel-field-value'>
+                          add phone number
+                        </a>`
+                    }
                   </p>
                 </div>
               </div>

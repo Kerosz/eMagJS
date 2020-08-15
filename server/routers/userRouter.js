@@ -6,14 +6,17 @@ import { generateToken } from '../utils';
 const userRouter = express.Router();
 
 userRouter.get(
-  '/admin',
+  '/createnewadmin',
   expressAsyncHandler(async (req, res) => {
     try {
       const user = new User({
-        username: 'adminum',
-        email: 'someemail@me.com',
-        password: '1234',
+        username: 'administrator',
+        email: 'admin@emagjs.ro',
+        password: 'admin123',
+        name: 'Administrator Account',
+        alias: 'Admin',
         isAdmin: true,
+        token: 'd261375e849a490b9d8cba07134b69ae',
       });
 
       const createdUser = await user.save();
@@ -42,8 +45,13 @@ userRouter.post(
         _id: signinUser._id,
         username: signinUser.username,
         email: signinUser.email,
+        name: signinUser.name,
+        alias: signinUser.alias,
+        phone: signinUser.phone,
+        adresses: signinUser.adresses,
+        date: signinUser.date,
         isAdmin: signinUser.isAdmin,
-        token: generateToken(signinUser),
+        token: signinUser.token,
       });
     }
   })
