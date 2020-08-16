@@ -66,6 +66,10 @@ const Products = {
         promoImg: '/img/promo-3.png',
         promoLink: '/#/promo-under120/',
       },
+      {
+        promoImg: '/img/promo-4.png',
+        promoLink: '/#/promo-summer/',
+      },
     ];
     const randomPromo = Math.floor(Math.random() * promotions.length);
 
@@ -140,21 +144,21 @@ const Products = {
 
     return `
       <section class="products">
-        <a href="${promoLink}">
-        <div style='background-position: center top; background-repeat: no-repeat;  background-image: url("${promoImg}"); height: 10rem'></div>
-        </a>
+      <a href="${promoLink}">
+      <div style='background-position: center top; background-repeat: no-repeat;  background-image: url("${promoImg}"); height: 10rem'></div>
+      </a>
         <div class="products-container wrapper">
           <header class="products__header">
             <div class="products__header-path">
               <a href="/#/">Homepage</a><span>/</span><span>${name}</span>
-            </div>
+            </div> 
             <h2 class="products__header-title">${name}</h2>
             <span class="products__header-id">Product code: ${id.toUpperCase()}</span>
           </header>
           <div class="products-divider"></div>
           <div class="products__details">
             <div class="products__details-showcase">
-              ${ProductSlider.render({ img, name })}
+            ${ProductSlider.render({ img, name })}
               ${
                 onSale
                   ? `<div class="promotion">${saleValue}% off<br /> get it now</div>`

@@ -62,19 +62,19 @@ const ProductSlider = {
         imgArr[0]
       }" alt="${name}" data-featured/>
       <div class="productSlider__container">
-      <button data-controls="left">${left}</button>
-      <div class="productSlider__inner" data-inner>
-       <img class="productSlider__thumbnail active" src='${
-         imgArr[0]
-       }' alt='${name}' data-thumbnail/>
-        ${imgArr
-          .slice(1)
-          .map((img) => {
-            return `<img class="productSlider__thumbnail" src='${img}' alt='${name}' data-thumbnail/>`;
-          })
-          .join('')}
-      </div>
-       <button data-controls="right">${right}</button>
+        <button data-controls="left">${left}</button>
+        <div class="productSlider__inner" data-inner>
+          <img class="productSlider__thumbnail active" src='${
+            imgArr[0]
+          }' alt='${name}' data-thumbnail/>
+          ${imgArr
+            .slice(1)
+            .map((img) => {
+              return `<img class="productSlider__thumbnail" src='${img}' alt='${name}' data-thumbnail/>`;
+            })
+            .join('')}
+        </div>
+        <button data-controls="right">${right}</button>
       </div>
     `;
   },

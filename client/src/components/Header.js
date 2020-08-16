@@ -1,4 +1,5 @@
-import { getUserInfo, getCartItems, logOut } from '../LocalStorage';
+import { getUserInfo, getCartItems } from '../LocalStorage';
+import Account from '../pages/Account';
 
 const Header = {
   icons: {
@@ -59,25 +60,23 @@ const Header = {
     `,
   },
 
-  componentDidUpdate: () => {
-    const { username } = getUserInfo();
+  getBasketQty: () => {
+    const basket = getCartItems();
 
-    if (username) {
-      document.querySelector('[data-logout]').addEventListener('click', () => {
-        logOut();
-        document.location.hash = '/';
-      });
-    }
+    return basket.reduce((total, product) => total + product.qty, 0);
   },
 
-  render: () => {
-    const { username: user, avatar } = getUserInfo();
+  componentDidUpdate: () => {
+    Account.logOutUser();
+  },
+
+  render: (position) => {
     const { human, account, cart, arrow, headset } = Header.icons;
-    const basket = getCartItems();
-    console.log(basket.length);
+    const { isAdmin: admin, username: user, avatar } = getUserInfo();
+    const counter = Header.getBasketQty();
 
     return `
-    <header class="header">
+    <header class="header" style="position: ${position || 'relative'}">
       <div class="header-container wrapper">
       <a class="header__branding" href="/#/" title="eMag - Buy with ease">
         <img src="./img/logo.svg" alt="eMag" />
@@ -96,7 +95,9 @@ const Header = {
               ${arrow}
               </span>
             </a>
-            <ul class="header__nav-detail">
+            <ul class="header__nav-detail" style="width: ${
+              user ? '21rem' : '27rem'
+            }">
             ${
               user
                 ? `
@@ -108,17 +109,30 @@ const Header = {
                     <a href="/#/myaccount" class="header__nav-detail--link">My account</a>
                   </li>
                   <li class="header__nav-detail--item">
-                    <a href="/#/myaccount/orders" class="header__nav-detail--link">My orders</a>
+                    <a href="/#/myaccount?ref=orders" class="header__nav-detail--link">Orders</a>
                   </li>
                   <li class="header__nav-detail--item">
-                    <a href="/#/myaccount/address" class="header__nav-detail--link">My address</a>
+                    <a href="/#/myaccount?ref=address'" class="header__nav-detail--link">Addresses</a>
                   </li>
                   <li class="header__nav-detail--item">
-                    <a href="/#/myaccount/wishlist" class="header__nav-detail--link">My wishlist</a>
+                    <a href="'/#/myaccount?ref=wishlist" class="header__nav-detail--link">Wishlist</a>
                   </li>
+                  <li class="header__nav-detail--item">
+                    <a href="/#/myaccount?ref=settings" class="header__nav-detail--link">Settings</a>
+                  </li>
+                  ${
+                    admin
+                      ? `
+                    <div class="products-divider"></div>
+                    <li class="header__nav-detail--item" style="font-weight: 500">
+                      <a href="/#/admin" class="header__nav-detail--link">Admin Dashboard</a>
+                    </li>
+                  `
+                      : ''
+                  }
                   <div class="products-divider"></div>
                   <li class="header__nav-detail--item">
-                    <button href="/#/" class="header__nav-detail--link" data-logout>Log Out</button>
+                    <button class="header__nav-detail--link" data-logout>Log Out</button>
                   </li>
                 `
                 : `
@@ -146,28 +160,28 @@ const Header = {
               </span>
             </a>
             ${
-              basket.length > 0
+              counter > 0
                 ? `
               <div class="header__nav-counter">
-                <span>${basket.length}</span>
+                <span>${counter}</span>
               </div>`
                 : ''
             }
-
+            
             <ul class="header__nav-detail basket">
               <li class="header__nav-detail--item">
                 ${
-                  basket.length > 0
-                    ? `<p>You have <span>${basket.length}</span> ${
-                        basket.length > 1 ? 'products' : 'product'
+                  counter > 0
+                    ? `<p>You have <span>${counter}</span> ${
+                        counter > 1 ? 'products' : 'product'
                       } in basket</p>`
-                    : `<p>No products in the basket</p>`
+                    : `<p>Your basket is empty</p>`
                 }
               </li>
               <li class="header__nav-detail--item">
                 <a href="/#/cart" class="cart__summary-btn btn-emag btn-detail">
                   <div class="red">>></div>
-                  <span>Cart details</span>
+                  <span>See details</span>
                 </a>
               </li>
             </ul>

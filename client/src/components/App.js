@@ -15,6 +15,10 @@ const App = {
     '/': Home,
     '/not-found': NotFound,
     '/myaccount': Account,
+    '/myaccount?ref=orders': Account,
+    '/myaccount?ref=address': Account,
+    '/myaccount?ref=wishlist': Account,
+    '/myaccount?ref=settings': Account,
     '/product/:id': Products,
     '/cart/:id': Cart,
     '/cart': Cart,
@@ -42,6 +46,8 @@ const App = {
     root.innerHTML =
       page === Signin || page === Register
         ? await page.render()
+        : page === Home
+        ? Header.render('sticky') + (await page.render()) + Footer.render()
         : Header.render() + (await page.render()) + Footer.render();
 
     if (page.componentDidUpdate) {

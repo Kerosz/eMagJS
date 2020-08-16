@@ -16,8 +16,8 @@ const Home = {
       <section class="store wrapper">
         <ul class="store__products">
           ${data
-            .map((product) => {
-              const {
+            .map(
+              ({
                 id,
                 name,
                 img,
@@ -26,10 +26,12 @@ const Home = {
                 salePrice,
                 rating,
                 reviews,
-              } = product;
-              const saleValue = Math.floor(((price - salePrice) / price) * 100);
+              }) => {
+                const saleValue = Math.floor(
+                  ((price - salePrice) / price) * 100
+                );
 
-              return `
+                return `
               <li class="store__products-item">
                 <div class="product">
                   ${
@@ -40,8 +42,8 @@ const Home = {
                   <a href="/#/product/${id}" class="product__image" title="${name}">
                     <img src="${img[0]}" alt="${name}" />
                   </a>
-                  <a href="/#/product/${id}" class="product__title">
-                    ${name}
+                  <a href="/#/product/${id}" class="product__title" title="${name}">
+                    ${name.slice(0, 71)}${name.length > 71 ? '...' : ''}
                   </a>
                   ${Rating.render({
                     starCount: rating,
@@ -76,7 +78,8 @@ const Home = {
                 </div>
               </li>
             `;
-            })
+              }
+            )
             .join('')}
         </ul>
       </section>

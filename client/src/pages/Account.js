@@ -1,7 +1,31 @@
-import { getUserInfo } from '../LocalStorage';
+import moment from 'moment';
+import { getUserInfo, logOut } from '../LocalStorage';
 import Sidebar from '../components/Sidebar';
 
 const Account = {
+  getTimeSinceClient: () => {
+    const { date } = getUserInfo();
+    const timeSinceClient = moment(date).fromNow(true);
+
+    return timeSinceClient;
+  },
+
+  logOutUser: () => {
+    const { username } = getUserInfo();
+
+    if (username) {
+      document.querySelector('[data-logout]').addEventListener('click', () => {
+        logOut();
+        document.location.hash = '/';
+      });
+    }
+  },
+
+  componentDidUpdate: () => {
+    Sidebar.update();
+    Account.logOutUser();
+  },
+
   render: () => {
     const { username: user, email, name, alias, phone, avatar } = getUserInfo();
 
@@ -62,7 +86,7 @@ const Account = {
                 </div>
                 <div class="account__panel-stats">
                     Thank you for being our client for
-                    <span>3 hours</span>
+                    <span>${Account.getTimeSinceClient()}</span>
                 </div>
               </div>
               <a href="/#/" class="accout__panel-action">account data administration</a>

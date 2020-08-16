@@ -13,7 +13,7 @@
   flex-direction: column;
   flex: 0 2 30rem;
   min-width: 25rem;
-  margin-right: 2.5rem;
+  margin-right: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -21,25 +21,16 @@
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  padding: 1.5rem 1rem;
+  padding: 0.2rem 1rem;
   box-shadow: 1px 1px 3px hsla(0, 0%, 0%, 0.15);
   border-radius: 0.3rem;
-}
-
-.account__item,
-.account__title {
-  border-bottom: 0.1rem solid #e0e0e0;
-  padding: 1rem 0;
-}
-
-.account__item:last-of-type {
-  border: none;
 }
 
 .account__title {
   font-weight: 700;
   color: #ad9388;
-  padding-bottom: 1.5rem;
+  padding: 1.8rem 0 1.6rem 0;
+  border-bottom: 0.1rem solid #e0e0e0;
 }
 
 .account__item {
@@ -49,12 +40,26 @@
 .account__link {
   color: #0082e6;
   font-weight: 500;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+  border-bottom: 0.1rem solid #e0e0e0;
+  cursor: pointer;
 }
 
 .account__link:hover {
-  text-decoration: underline;
-  color: #5251bc;
+  color: #3e5cc9;
+  background: #f6f7fa;
+  padding-left: 0.2rem;
+}
+
+.account__link:last-of-type {
+  border: none;
+}
+
+.account__link-admin {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
 .account__content {
@@ -124,6 +129,7 @@
   height: max-content;
   max-width: 15rem;
   border: 1px solid hsl(0, 0%, 93.3%);
+  box-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.05);
   border-radius: 0.6rem;
   font-size: 1.3rem;
 }
@@ -131,7 +137,7 @@
 .account__panel-stats > span {
   font-size: 1.8rem;
   font-weight: 700;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
 }
 
 .account__panel-field--name {
@@ -150,7 +156,7 @@
 }
 
 .accout__panel-action:hover {
-  background: #f4f6ff;
+  background: #f6f7fa;
 }
 
 @media only screen and (max-width: 1020px) {
