@@ -11,6 +11,12 @@ Build a full-stack ecommerce application using `VanillaJS` on the front-end and 
 1. The application is using a custom client side rendering (without page refresh)
 2. The application has a server side validation
 
+![eMAG JS](https://github.com/Kerosz/eMagJS/blob/master/client/img/previews/preview-1.png)
+![eMAG JS](https://github.com/Kerosz/eMagJS/blob/master/client/img/previews/preview-2.png)
+![eMAG JS](https://github.com/Kerosz/eMagJS/blob/master/client/img/previews/preview-3.png)
+![eMAG JS](https://github.com/Kerosz/eMagJS/blob/master/client/img/previews/preview-4.png)
+![eMAG JS](https://github.com/Kerosz/eMagJS/blob/master/client/img/previews/preview-5.png)
+
 ## User Requirement Specification
 
 - User Story #1 As a user, I should be able to see a a list of products on the homepage
@@ -31,22 +37,22 @@ Build a full-stack ecommerce application using `VanillaJS` on the front-end and 
 
 ## Features
 
-[x] Homepage/Store page list of products
-[x] Register/Login system
-[x] Newsletter system
-[x] Profile/settings account page
-[x] Buy points system
-[x] Dynamic shipping calculator
-[x] Adding/removing products to cart and changing quantity
-[x] Dinamic price calculator (shipping included)
-[ ] Wishlist system
-[ ] Product specifications section
-[ ] Reviews system
-[ ] Cupon/voucher/discounts system
-[ ] Daily sales/discounts system
-[ ] Register as a vendor/seller system
-[ ] Product sorting system
-[ ] More features in design process
+- [x] Homepage/Store page list of products
+- [x] Register/Login system
+- [x] Newsletter system
+- [x] Profile/settings account page
+- [x] Buy points system
+- [x] Dynamic shipping calculator
+- [x] Adding/removing products to cart and changing quantity
+- [x] Dinamic price calculator (shipping included)
+- [ ] Wishlist system
+- [ ] Product specifications section
+- [ ] Reviews system
+- [ ] Cupon/voucher/discounts system
+- [ ] Daily sales/discounts system
+- [ ] Register as a vendor/seller system
+- [ ] Product sorting system
+- [ ] More features in design process
 
 ## Application Dependencies
 
