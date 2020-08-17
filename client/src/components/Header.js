@@ -78,7 +78,7 @@ const Header = {
     return `
     <header class="header" style="position: ${position || 'relative'}">
       <div class="header-container wrapper">
-      <a class="header__branding" href="/#/" title="eMag - Buy with ease">
+      <a class="header__branding" href="/" title="eMag - Buy with ease">
         <img src="./img/logo.svg" alt="eMag" />
       </a>
       <nav class="header__nav-container">
@@ -109,7 +109,7 @@ const Header = {
                     admin
                       ? `
                     <li class="header__nav-detail--item btn-secondary" style="justify-content:center; margin: 0.4rem 0;">
-                      <a href="/#/admin" class="header__nav-detail--link ">Admin Dashboard</a>
+                      <a href='/#/admin-dashboard' target="_blank" class="header__nav-detail--link ">Admin Dashboard</a>
                     </li>
                   `
                       : ''

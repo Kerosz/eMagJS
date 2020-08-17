@@ -19,10 +19,11 @@ export const setUserInfo = ({
   alias = '',
   phone = '',
   adresses = '',
-  date,
+  birthday,
   avatar,
   token = '',
   isAdmin = false,
+  date,
 }) => {
   localStorage.setItem(
     'userInfo',
@@ -35,10 +36,11 @@ export const setUserInfo = ({
       alias,
       phone,
       adresses,
-      date,
+      birthday,
       avatar,
       token,
       isAdmin,
+      date,
     })
   );
 };

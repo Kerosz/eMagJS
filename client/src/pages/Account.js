@@ -2,7 +2,6 @@ import moment from 'moment';
 import { getUserInfo, logOut } from '../LocalStorage';
 import Sidebar from '../components/Sidebar';
 import Orders from '../components/Orders';
-import Address from '../components/Address';
 import Wishlist from '../components/Wishlist';
 import Settings from '../components/Settings';
 
@@ -53,17 +52,6 @@ const Account = {
         <div class="account-container wrapper">
           ${Sidebar.render()}
           ${Orders.render()}
-        </div>
-      </section>
-      `;
-    }
-
-    if (document.location.hash === '#/myaccount?ref=address') {
-      return `
-      <section class="account">
-        <div class="account-container wrapper">
-          ${Sidebar.render()}
-          ${Address.render()}
         </div>
       </section>
       `;

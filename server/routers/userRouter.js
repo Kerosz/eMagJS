@@ -2,7 +2,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import User from '../models/userModel';
-import { generateToken } from '../utils';
+import { generateToken, isAuth } from '../utils';
 
 const userRouter = express.Router();
 
@@ -50,10 +50,11 @@ userRouter.post(
         alias: signinUser.alias,
         phone: signinUser.phone,
         adresses: signinUser.adresses,
-        date: signinUser.date,
+        birthday: signinUser.birthday,
         avatar: signinUser.avatar,
         isAdmin: signinUser.isAdmin,
-        token: signinUser.token,
+        date: signinUser.date,
+        token: generateToken(signinUser),
       });
     }
   })
@@ -79,8 +80,55 @@ userRouter.post(
         _id: createdUser._id,
         username: createdUser.username,
         email: createdUser.email,
+        name: createdUser.name,
+        alias: createdUser.alias,
+        phone: createdUser.phone,
+        adresses: createdUser.adresses,
+        birthday: createdUser.birthday,
+        avatar: createdUser.avatar,
         isAdmin: createdUser.isAdmin,
+        date: createdUser.date,
         token: generateToken(createdUser),
+      });
+    }
+  })
+);
+
+userRouter.put(
+  '/update',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.body.id);
+
+    if (!user) {
+      res.status(404).send({
+        message: 'User not found',
+      });
+    } else {
+      user.name = req.body.name;
+      user.alias = req.body.alias;
+      user.phone = req.body.phone;
+      user.birthday = req.body.birthday;
+
+      user.username = req.body.username || user.username;
+      user.email = req.body.email || user.email;
+      user.password = req.body.password || user.password;
+
+      const updatedUserInfo = await user.save();
+
+      res.send({
+        _id: updatedUserInfo._id,
+        username: updatedUserInfo.username,
+        email: updatedUserInfo.email,
+        name: updatedUserInfo.name,
+        alias: updatedUserInfo.alias,
+        phone: updatedUserInfo.phone,
+        adresses: updatedUserInfo.adresses,
+        birthday: updatedUserInfo.birthday,
+        avatar: updatedUserInfo.avatar,
+        isAdmin: updatedUserInfo.isAdmin,
+        date: updatedUserInfo.date,
+        token: generateToken(updatedUserInfo),
       });
     }
   })

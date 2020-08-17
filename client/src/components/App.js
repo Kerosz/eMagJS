@@ -9,6 +9,9 @@ import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
 import NotFound from '../pages/NotFound';
 import { parseRequestUrl } from '../Config';
+import Newsletter from './Newsletter';
+import Settings from './Settings';
+import Admin from '../pages/Admin';
 
 const App = {
   routes: {
@@ -16,9 +19,9 @@ const App = {
     '/not-found': NotFound,
     '/myaccount': Account,
     '/myaccount?ref=orders': Account,
-    '/myaccount?ref=address': Account,
     '/myaccount?ref=wishlist': Account,
     '/myaccount?ref=settings': Account,
+    '/admin-dashboard': Admin,
     '/product/:id': Products,
     '/cart/:id': Cart,
     '/cart': Cart,
@@ -46,22 +49,15 @@ const App = {
     const root = document.querySelector('[data-root]');
 
     root.innerHTML =
-      page === Signin || page === Register
+      page === Signin || page === Register || page === Admin
         ? await page.render()
         : page === Home
         ? Header.render('sticky') + (await page.render()) + Footer.render()
         : Header.render() + (await page.render()) + Footer.render();
 
-    // root.innerHTML = {
-    //   Signin: await page.render(),
-    //   Register: await page.render(),
-    //   Home: Header.render('sticky') + (await page.render()) + Footer.render(),
-    //   page: Header.render() + (await page.render()) + Footer.render(),
-    // }[page];
-
-    if (page.componentDidUpdate) {
-      await page.componentDidUpdate();
-    }
+    if (page.componentDidUpdate) await page.componentDidUpdate();
+    if (page === Home) Newsletter.componentDidUpdate();
+    if (page === Account) Settings.componentDidUpdate();
     Header.componentDidUpdate();
 
     // Checks for changes in the URL and rerenders
@@ -75,9 +71,10 @@ const App = {
     document.querySelector('[data-root]').innerHTML =
       Header.render() + (await component.render()) + Footer.render();
 
-    if (component.componentDidUpdate) {
-      await component.componentDidUpdate();
-    }
+    if (component.componentDidUpdate) await component.componentDidUpdate();
+    if (component === Home) Newsletter.componentDidUpdate();
+    if (component === Account) Settings.componentDidUpdate();
+    Header.componentDidUpdate();
   },
 };
 

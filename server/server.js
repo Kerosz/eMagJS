@@ -6,6 +6,7 @@ import data from './data';
 import config from './config';
 import userRouter from './routers/userRouter';
 import productRouter from './routers/productRouter';
+import newsletterRouter from './routers/newsletterRouter';
 
 mongoose
   .connect(config.MONGODB_URL, {
@@ -22,6 +23,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
+app.use('/api/newsletter', newsletterRouter);
 
 app.get('/api', (req, res) => {
   if (data) {

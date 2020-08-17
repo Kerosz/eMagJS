@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Config from './Config';
+import { getUserInfo } from './LocalStorage';
 
 const { apiUrl } = Config;
 
@@ -94,6 +95,73 @@ const Api = {
           'Content-Type': 'application/json',
         },
         data: {
+          username,
+          email,
+          password,
+        },
+      });
+
+      if (response.statusText !== 'OK') {
+        throw new Error(response.data.message);
+      }
+
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      return { error: err.response.data.message };
+    }
+  },
+
+  subscribe: async ({ name, email }) => {
+    try {
+      const response = await axios({
+        url: `${apiUrl}/api/newsletter/subscribe`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          name,
+          email,
+        },
+      });
+
+      if (response.statusText !== 'OK') {
+        throw new Error(response.data.message);
+      }
+
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      return { error: err.response.data.message };
+    }
+  },
+
+  update: async ({
+    name,
+    alias,
+    phone,
+    birthday,
+    username,
+    email,
+    password,
+  }) => {
+    const { _id, token } = getUserInfo();
+
+    try {
+      const response = await axios({
+        url: `${apiUrl}/api/users/update`,
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        data: {
+          id: _id,
+          name,
+          alias,
+          phone,
+          birthday,
           username,
           email,
           password,

@@ -57,7 +57,7 @@ const Sidebar = {
           ${
             admin
               ? `
-          <a href='/#/admin' class='account__link-admin btn-secondary'>
+          <a href='/#/admin-dashboard' target="_blank" class='account__link-admin btn-secondary'>
             <li class='account__item'>
                 Admin Dashboard
             </li>

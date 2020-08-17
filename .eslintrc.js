@@ -15,5 +15,6 @@ module.exports = {
     'import/no-cycle': 0,
     'import/names': 0,
     'import/prefer-default-export': 0,
+    'no-underscore-dangle': 0,
   },
 };
