@@ -273,8 +273,9 @@ body {
 }
 
 .header__nav-detail--title {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 700;
+  margin: 0.5rem 0;
 }
 
 .header__nav-detail--item {

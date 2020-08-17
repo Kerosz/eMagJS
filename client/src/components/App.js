@@ -36,6 +36,7 @@ const App = {
       (resource ? `/${resource}` : '/') +
       (id ? '/:id' : '') +
       (action ? `/${action}` : '');
+
     return routes[parseUrl] ? routes[parseUrl] : NotFound;
   },
 
@@ -43,12 +44,20 @@ const App = {
     const page = App.router();
 
     const root = document.querySelector('[data-root]');
+
     root.innerHTML =
       page === Signin || page === Register
         ? await page.render()
         : page === Home
         ? Header.render('sticky') + (await page.render()) + Footer.render()
         : Header.render() + (await page.render()) + Footer.render();
+
+    // root.innerHTML = {
+    //   Signin: await page.render(),
+    //   Register: await page.render(),
+    //   Home: Header.render('sticky') + (await page.render()) + Footer.render(),
+    //   page: Header.render() + (await page.render()) + Footer.render(),
+    // }[page];
 
     if (page.componentDidUpdate) {
       await page.componentDidUpdate();

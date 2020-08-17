@@ -72,7 +72,7 @@ const Header = {
 
   render: (position) => {
     const { human, account, cart, arrow, headset } = Header.icons;
-    const { isAdmin: admin, username: user, avatar } = getUserInfo();
+    const { isAdmin: admin, username: user, avatar, alias } = getUserInfo();
     const counter = Header.getBasketQty();
 
     return `
@@ -102,34 +102,33 @@ const Header = {
               user
                 ? `
                   <li class="header__nav-detail--title">
-                      Hi there, ${user}
+                      Hi there, ${alias || user}
                   </li>
                   <div class="products-divider"></div>
+                  ${
+                    admin
+                      ? `
+                    <li class="header__nav-detail--item btn-secondary" style="justify-content:center; margin: 0.4rem 0;">
+                      <a href="/#/admin" class="header__nav-detail--link ">Admin Dashboard</a>
+                    </li>
+                  `
+                      : ''
+                  }
                   <li class="header__nav-detail--item">
-                    <a href="/#/myaccount" class="header__nav-detail--link">My account</a>
+                    <a href="/#/myaccount" class="header__nav-detail--link">Profile</a>
                   </li>
                   <li class="header__nav-detail--item">
                     <a href="/#/myaccount?ref=orders" class="header__nav-detail--link">Orders</a>
                   </li>
                   <li class="header__nav-detail--item">
-                    <a href="/#/myaccount?ref=address'" class="header__nav-detail--link">Addresses</a>
+                    <a href="/#/myaccount?ref=address" class="header__nav-detail--link">Addresses</a>
                   </li>
                   <li class="header__nav-detail--item">
-                    <a href="'/#/myaccount?ref=wishlist" class="header__nav-detail--link">Wishlist</a>
+                    <a href="/#/myaccount?ref=wishlist" class="header__nav-detail--link">Wishlist</a>
                   </li>
                   <li class="header__nav-detail--item">
                     <a href="/#/myaccount?ref=settings" class="header__nav-detail--link">Settings</a>
                   </li>
-                  ${
-                    admin
-                      ? `
-                    <div class="products-divider"></div>
-                    <li class="header__nav-detail--item" style="font-weight: 500">
-                      <a href="/#/admin" class="header__nav-detail--link">Admin Dashboard</a>
-                    </li>
-                  `
-                      : ''
-                  }
                   <div class="products-divider"></div>
                   <li class="header__nav-detail--item">
                     <button class="header__nav-detail--link" data-logout>Log Out</button>

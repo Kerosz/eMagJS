@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import data from './data';
 import config from './config';
 import userRouter from './routers/userRouter';
+import productRouter from './routers/productRouter';
 
 mongoose
   .connect(config.MONGODB_URL, {
@@ -19,8 +20,9 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-
 app.use('/api/users', userRouter);
+app.use('/api/products', productRouter);
+
 app.get('/api', (req, res) => {
   if (data) {
     res.send(data);
@@ -38,6 +40,7 @@ app.get('/api/products/:id', (req, res) => {
   }
 });
 
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   const status = err.name && err.name === 'ValidationError' ? 400 : 500;
 

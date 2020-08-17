@@ -8,13 +8,27 @@ const Sidebar = {
     });
   },
 
-  render: () => {
-    const { isAdmin: admin, username } = getUserInfo();
+  render: (profile = true) => {
+    const { isAdmin: admin, name, username, avatar } = getUserInfo();
 
     return `
       <div class='account__sidebar'>
         <ul class='account__menu'>
-          <li class='account__title'>Account Menu</li>
+          ${
+            profile
+              ? `
+            <li class="account__profile">
+              <img src="${avatar}" alt="${username}"/>
+              <span>${name || username}</span>
+            </li>
+          `
+              : `<li class='account__title'>Account Menu</li>`
+          }
+          <a href='/#/myaccount' class='account__link'>
+            <li class='account__item'>
+                Profile
+            </li>
+          </a>
           <a href='/#/myaccount?ref=orders' class='account__link'>
             <li class='account__item'>
                 Orders

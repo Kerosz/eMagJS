@@ -11,10 +11,29 @@
 .account__sidebar {
   display: flex;
   flex-direction: column;
-  flex: 0 2 30rem;
+  flex: 0 2 28rem;
   min-width: 25rem;
   margin-right: 2rem;
   margin-bottom: 2rem;
+}
+
+.account__profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0 2rem 0;
+}
+
+.account__profile > img {
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50rem;
+  margin-bottom: 1.3rem;
+}
+
+.account__profile > span {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .account__menu {
@@ -93,6 +112,7 @@
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 2rem;
+  font-size: 1.5rem;
 }
 
 .account__panel-image {
@@ -109,7 +129,7 @@
 }
 
 .account__panel-data > p {
-  margin: 1.5rem 0;
+  margin: 1.6rem 0;
 }
 
 .account__panel-data p > a {
@@ -181,4 +201,79 @@
   .account__content {
     min-width: 30rem;
   }
+}
+
+/* SETTINGS */
+
+.settings__panel {
+  display: flex;
+  flex-direction: column;
+  background: #e4f1f9;
+  padding: 2.5rem;
+  border-radius: 0.3rem;
+}
+
+.settings__title {
+  font-size: 2.1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.settings__title:first-of-type {
+  margin-top: 0;
+}
+
+.settings__info {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 2.5rem;
+  box-shadow: 1px 1px 3px 1px hsla(0, 0%, 0%, 0.13);
+  border-radius: 0.3rem;
+  font-size: 1.4rem;
+}
+
+.settings__info-container {
+  display: flex;
+  align-items: center;
+  margin: 0.8rem 0;
+}
+
+.settings__info-group {
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+}
+
+.settings__label {
+  display: inline-block;
+  width: 12rem;
+}
+
+.settings__info-group--password {
+  width: 100%;
+}
+
+.settings__input {
+  font-size: 1.4rem;
+  width: 70%;
+  padding: 0.7rem;
+  background: transparent;
+  outline: none;
+  border: 0.1rem solid hsl(0, 0%, 73.3%);
+  border-radius: 0.6rem;
+}
+
+.settings__input:hover {
+  border-color: hsl(0, 0%, 53.3%);
+}
+
+.settings__input[type='date'] {
+  width: max-content;
+}
+
+.account__btn {
+  width: max-content;
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
 }

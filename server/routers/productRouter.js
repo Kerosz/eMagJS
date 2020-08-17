@@ -5,7 +5,7 @@ import Product from '../models/productModel';
 const productRouter = express.Router();
 
 productRouter.post(
-  '/products',
+  '/add',
   expressAsyncHandler(async (req, res) => {
     const product = new Product({
       id: req.body.id,
@@ -26,8 +26,8 @@ productRouter.post(
       });
     } else {
       res.send({
-        _id: createdProduct._id,
-        id: createdProduct.id,
+        // eslint-disable-next-line no-underscore-dangle
+        id: createdProduct._id,
         name: createdProduct.name,
         category: createdProduct.category,
         img: createdProduct.img,
@@ -39,3 +39,5 @@ productRouter.post(
     }
   })
 );
+
+export default productRouter;
