@@ -1,0 +1,157 @@
+.checkout {
+  width: 100%;
+  height: 100vh;
+}
+
+.checkout::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.4rem;
+  background: linear-gradient(
+    to right,
+    hsl(357.9, 100%, 55.7%) 5%,
+    hsl(310.9, 52.4%, 41.2%) 35%,
+    hsl(268.8, 43.9%, 44.7%) 45%,
+    hsl(230, 54.1%, 52.2%) 55%,
+    hsl(206.1, 100%, 45.1%) 70%
+  );
+  transform: translateY(6.7rem);
+}
+
+.checkout__steps {
+  display: flex;
+}
+
+.checkout__steps-item {
+  margin: 0 2rem;
+  color: #999;
+}
+
+.checkout__steps-item.active {
+  color: #0082e6;
+}
+
+.checkout__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+}
+
+.checkout__shipping {
+  padding: 3.5rem 0;
+  max-width: 885px;
+  margin: 0 auto;
+}
+
+.checkout__title {
+  font-size: 2.9rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.checkout__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #e4f1f9;
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.checkout__container-title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  margin: 0.5rem 0 2rem;
+}
+
+.step {
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #404040;
+  color: #ffffff;
+  margin: 0 3rem;
+}
+
+.checkout__delivery-option {
+  display: flex;
+  width: 100%;
+}
+
+.checkout__delivery-inner {
+  display: flex;
+  width: 100%;
+  background: #ffffff;
+  padding: 1.5rem 3.9rem;
+  border: 0.1rem solid #0082e6;
+  border-radius: 0.4rem;
+}
+
+.checkout__delivery-inner:first-of-type {
+  margin-right: 2rem;
+}
+
+.delivery__label {
+  width: 100%;
+  text-align: center;
+  color: #2974ad;
+}
+
+.checkout__address {
+  background: #ffffff;
+  border-radius: 0.4rem;
+  padding: 2rem 3.5rem 2rem;
+}
+
+.checkout__address:last-of-type {
+  padding: 0 3.5rem 3.5rem;
+}
+
+.checkout__address-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.address__label {
+  width: 100%;
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 0;
+  border-bottom: 0.1rem solid #70707075;
+  font-size: 1.5rem;
+}
+
+.address__label-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.address__label-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.address__label-group > span {
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.btn__shipping {
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0.8rem 1.2rem;
+}

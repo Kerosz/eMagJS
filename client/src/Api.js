@@ -178,6 +178,58 @@ const Api = {
       return { error: err.response.data.message };
     }
   },
+
+  addAddress: async (newAddress) => {
+    const { _id, token } = getUserInfo();
+
+    try {
+      const response = await axios({
+        url: `${apiUrl}/api/users/address`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        data: {
+          id: _id,
+          newAddress,
+        },
+      });
+
+      if (response.statusText !== 'OK') {
+        throw new Error(response.data.message);
+      }
+
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      return { error: err.response.data.message };
+    }
+  },
+
+  getAddress: async () => {
+    const { _id, token } = getUserInfo();
+
+    try {
+      const response = await axios({
+        url: `${apiUrl}/api/users/address/${_id}`,
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.statusText !== 'OK') {
+        throw new Error(response.data.message);
+      }
+
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      return { error: err.response.data.message };
+    }
+  },
 };
 
 export default Api;

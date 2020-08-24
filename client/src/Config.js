@@ -1,3 +1,5 @@
+import { getCartItems } from './LocalStorage';
+
 export const parseRequestUrl = () => {
   const url = document.location.hash.toLowerCase();
   const request = url.split('/');
@@ -7,6 +9,14 @@ export const parseRequestUrl = () => {
     id: request[2],
     action: request[3],
   };
+};
+
+export const redirectUser = () => {
+  if (getCartItems().length !== 0) {
+    document.location.hash = '/checkout';
+  } else {
+    document.location.hash = '/myaccount';
+  }
 };
 
 const Config = {

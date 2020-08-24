@@ -1,7 +1,7 @@
 import App from '../components/App';
 import Api from '../Api';
 import { parseRequestUrl } from '../Config';
-import { getCartItems, setCartItems, getUserInfo } from '../LocalStorage';
+import { getCartItems, setCartItems } from '../LocalStorage';
 
 const Cart = {
   addToCart: (newItem, updateCart = false) => {
@@ -72,12 +72,7 @@ const Cart = {
     if (getCartItems().length > 0) {
       const continueButton = document.querySelector('[data-checkout]');
       continueButton.addEventListener('click', () => {
-        const { username } = getUserInfo();
-
-        // eslint-disable-next-line no-unused-expressions
-        username
-          ? (document.location.hash = '/checkout')
-          : (document.location.hash = '/signin');
+        document.location.hash = '/checkout';
       });
     }
   },

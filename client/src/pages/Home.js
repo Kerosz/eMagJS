@@ -3,6 +3,10 @@ import Rating from '../components/Rating';
 import Newsletter from '../components/Newsletter';
 
 const Home = {
+  componentDidUpdate: () => {
+    Newsletter.componentDidUpdate();
+  },
+
   render: async () => {
     const data = await Api.getData();
 

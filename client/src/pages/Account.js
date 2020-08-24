@@ -36,9 +36,10 @@ const Account = {
   componentDidUpdate: () => {
     Sidebar.update();
     Account.logOutUser();
+    Settings.componentDidUpdate();
   },
 
-  render: () => {
+  render: async () => {
     const { username: user, email, name, alias, phone, avatar } = getUserInfo();
     const { pen } = Account.icons;
 
@@ -73,7 +74,7 @@ const Account = {
       <section class="account">
         <div class="account-container wrapper">
           ${Sidebar.render()}
-          ${Settings.render()}
+          ${await Settings.render()}
         </div>
       </section>
       `;

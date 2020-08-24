@@ -70,6 +70,10 @@ const Products = {
         promoImg: '/img/promo-4.png',
         promoLink: '/#/promo-summer/',
       },
+      {
+        promoImg: '/img/promo-5.png',
+        promoLink: '/#/promo-school/',
+      },
     ];
     const randomPromo = Math.floor(Math.random() * promotions.length);
 

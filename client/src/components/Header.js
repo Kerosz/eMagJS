@@ -121,9 +121,6 @@ const Header = {
                     <a href="/#/myaccount?ref=orders" class="header__nav-detail--link">Orders</a>
                   </li>
                   <li class="header__nav-detail--item">
-                    <a href="/#/myaccount?ref=address" class="header__nav-detail--link">Addresses</a>
-                  </li>
-                  <li class="header__nav-detail--item">
                     <a href="/#/myaccount?ref=wishlist" class="header__nav-detail--link">Wishlist</a>
                   </li>
                   <li class="header__nav-detail--item">

@@ -94,6 +94,48 @@ userRouter.post(
   })
 );
 
+userRouter.post(
+  '/address',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.body.id);
+
+    if (!user) {
+      res.status(404).send({
+        message: 'User not found',
+      });
+    } else {
+      user.addresses = [...user.addresses, req.body.newAddress];
+
+      const updatedAddressInfo = await user.save();
+
+      res.send({
+        _id: updatedAddressInfo._id,
+        addresses: updatedAddressInfo.addresses,
+        token: generateToken(updatedAddressInfo),
+      });
+    }
+  })
+);
+
+userRouter.get(
+  '/address/:id',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      res.status(404).send({
+        message: 'User not found',
+      });
+    } else {
+      res.send({
+        addresses: user.addresses,
+      });
+    }
+  })
+);
+
 userRouter.put(
   '/update',
   isAuth,

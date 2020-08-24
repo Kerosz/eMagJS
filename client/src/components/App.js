@@ -9,8 +9,6 @@ import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
 import NotFound from '../pages/NotFound';
 import { parseRequestUrl } from '../Config';
-import Newsletter from './Newsletter';
-import Settings from './Settings';
 import Admin from '../pages/Admin';
 
 const App = {
@@ -28,6 +26,9 @@ const App = {
     '/signin': Signin,
     '/register': Register,
     '/checkout': Checkout,
+    '/checkout?ref=shipping': Checkout,
+    '/checkout?ref=payment': Checkout,
+    '/checkout?ref=order': Checkout,
   },
 
   // Handles URL routing based on added routes
@@ -49,16 +50,17 @@ const App = {
     const root = document.querySelector('[data-root]');
 
     root.innerHTML =
-      page === Signin || page === Register || page === Admin
+      page === Signin ||
+      page === Register ||
+      page === Admin ||
+      page === Checkout
         ? await page.render()
         : page === Home
         ? Header.render('sticky') + (await page.render()) + Footer.render()
         : Header.render() + (await page.render()) + Footer.render();
 
     if (page.componentDidUpdate) await page.componentDidUpdate();
-    if (page === Home) Newsletter.componentDidUpdate();
-    if (page === Account) Settings.componentDidUpdate();
-    Header.componentDidUpdate();
+    if (page !== Checkout) Header.componentDidUpdate();
 
     // Checks for changes in the URL and rerenders
     window.onhashchange = () => {
@@ -72,8 +74,6 @@ const App = {
       Header.render() + (await component.render()) + Footer.render();
 
     if (component.componentDidUpdate) await component.componentDidUpdate();
-    if (component === Home) Newsletter.componentDidUpdate();
-    if (component === Account) Settings.componentDidUpdate();
     Header.componentDidUpdate();
   },
 };

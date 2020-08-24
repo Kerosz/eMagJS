@@ -277,3 +277,70 @@
   margin-top: 1rem;
   padding: 0.8rem 2rem;
 }
+
+.settings__model {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 80rem;
+  min-width: 30rem;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.settings__model.open {
+  display: flex;
+}
+
+.settings__info-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 0.1rem solid #222;
+  transform: translate(1rem, -1rem);
+  cursor: pointer;
+}
+
+.settings__info-close > svg {
+  font-size: 2rem;
+}
+
+.settings__info-warn {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.settings__btn {
+  width: max-content;
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.settings__info-address {
+  font-size: 1.4rem;
+}
+
+.settings__info-address--item {
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: 0.1rem solid #70707075;
+}
+
+.settings__info-address--item > h4 {
+  margin-bottom: 0.3rem;
+}
+
+.settings__info-address--item > p {
+  margin-bottom: 0.3rem;
+}

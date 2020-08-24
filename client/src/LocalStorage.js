@@ -56,3 +56,13 @@ export const logOut = () => {
     ? localStorage.removeItem('userInfo')
     : null;
 };
+
+export const setAddress = (data) => {
+  localStorage.setItem('addressInfo', JSON.stringify(data));
+};
+
+export const getAddress = () => {
+  return localStorage.getItem('addressInfo')
+    ? JSON.parse(localStorage.getItem('addressInfo'))
+    : null;
+};

@@ -100,13 +100,15 @@ body {
 }
 
 .btn-s {
+  display: inline-block;
   color: #3065d0;
   font-size: 1.5rem;
   padding: 0.4rem 0.7rem;
   margin: 0 0.5rem;
-}
-.btn-s:hover {
-  text-decoration: underline;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
 }
 
 .cta {
@@ -146,6 +148,24 @@ body {
 
 .m-t1 {
   margin-top: 1rem;
+}
+
+.m-l4 {
+  margin-left: 4.5rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+}
+.overlay.open {
+  display: block;
 }
 
 /*****************/

@@ -34,11 +34,6 @@ const Sidebar = {
                 Orders
             </li>
           </a>
-          <a href='/#/myaccount?ref=address' class='account__link'>
-            <li class='account__item'>
-                Addresses
-            </li>
-          </a>
           <a href='/#/myaccount?ref=wishlist' class='account__link'>
             <li class='account__item'>
                 Wishlist

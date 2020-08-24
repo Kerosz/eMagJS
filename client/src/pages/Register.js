@@ -1,4 +1,5 @@
 import Api from '../Api';
+import { redirectUser } from '../Config';
 import { getUserInfo, setUserInfo } from '../LocalStorage';
 
 const Register = {
@@ -19,14 +20,15 @@ const Register = {
           errorContainer.innerHTML = `<div><p>${data.error}</p></div>`;
         } else {
           setUserInfo(data);
-          document.location.hash = '/';
+
+          redirectUser();
         }
       });
   },
 
   render: () => {
     if (getUserInfo().username) {
-      document.location.hash = '/';
+      redirectUser();
     }
 
     return `
