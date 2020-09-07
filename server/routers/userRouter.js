@@ -136,6 +136,28 @@ userRouter.get(
   })
 );
 
+userRouter.delete(
+  '/address/:id',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      res.status(404).send({
+        message: 'User not found',
+      });
+    } else {
+      const findAddress = user.addresses.find(
+        (address) => address.id === req.body.addressId
+      );
+
+      console.log(findAddress);
+      // user.addresses.find((address) => address.id === req.body.addressId)
+      // console.log(user.addresses);
+    }
+  })
+);
+
 userRouter.put(
   '/update',
   isAuth,

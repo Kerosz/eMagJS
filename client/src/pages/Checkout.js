@@ -2,7 +2,6 @@
 import CheckoutSteps from '../components/CheckoutSteps';
 import Header from '../components/Header';
 import Shipping from '../components/Shipping';
-import { getUserInfo } from '../LocalStorage';
 
 const Checkout = {
   stepHandler: (step) => {
@@ -25,7 +24,7 @@ const Checkout = {
 
     return `
       <div class="checkout__header">
-        <a class="header__branding" href="/" title="eMag - Buy with ease">
+        <a class="header__branding" href="/#/" title="eMag - Buy with ease">
           <img src="./img/logo.svg" alt="eMag" />
         </a>
         ${Checkout.stepHandler(step)}
@@ -53,14 +52,6 @@ const Checkout = {
   },
 
   render: async () => {
-    const { username } = getUserInfo();
-
-    if (!username) {
-      document.location.hash = '#/signin';
-    } else {
-      document.location.hash = '/checkout?ref=shipping';
-    }
-
     if (document.location.hash === '#/checkout?ref=shipping') {
       return `
         <section class="checkout">

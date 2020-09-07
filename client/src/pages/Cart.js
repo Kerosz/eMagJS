@@ -1,7 +1,12 @@
 import App from '../components/App';
 import Api from '../Api';
 import { parseRequestUrl } from '../Config';
-import { getCartItems, setCartItems } from '../LocalStorage';
+import {
+  getCartItems,
+  getUserInfo,
+  setCartItems,
+  setProductCost,
+} from '../LocalStorage';
 
 const Cart = {
   addToCart: (newItem, updateCart = false) => {
@@ -69,12 +74,18 @@ const Cart = {
     });
 
     // Handle redirect to checkout page
-    if (getCartItems().length > 0) {
-      const continueButton = document.querySelector('[data-checkout]');
-      continueButton.addEventListener('click', () => {
-        document.location.hash = '/checkout';
-      });
-    }
+    const continueButton = document.querySelector('[data-checkout]');
+    continueButton.addEventListener('click', () => {
+      const { username } = getUserInfo();
+
+      if (username && getCartItems().length > 0) {
+        document.location.hash = '#/checkout?ref=shipping';
+      }
+
+      if (!username) {
+        document.location.hash = '/signin';
+      }
+    });
   },
 
   render: async () => {
@@ -112,6 +123,7 @@ const Cart = {
       return total + price * qty;
     }, 0);
     const deliveryCost = 15;
+    setProductCost(productCost);
 
     return `
       <section class="cart">

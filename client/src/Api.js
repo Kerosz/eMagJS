@@ -230,6 +230,31 @@ const Api = {
       return { error: err.response.data.message };
     }
   },
+
+  removeAddress: async (addressId) => {
+    const { _id, token } = getUserInfo();
+
+    try {
+      const response = await axios({
+        url: `${apiUrl}/api/users/address/${_id}`,
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        data: { addressId },
+      });
+
+      if (response.statusText !== 'OK') {
+        throw new Error(response.data.message);
+      }
+
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      return { error: err.response.data.message };
+    }
+  },
 };
 
 export default Api;

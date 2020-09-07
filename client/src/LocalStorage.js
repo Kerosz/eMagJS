@@ -57,12 +57,22 @@ export const logOut = () => {
     : null;
 };
 
-export const setAddress = (data) => {
-  localStorage.setItem('addressInfo', JSON.stringify(data));
+export const setProductCost = (cost) => {
+  localStorage.setItem('productCost', JSON.stringify(cost));
 };
 
-export const getAddress = () => {
-  return localStorage.getItem('addressInfo')
-    ? JSON.parse(localStorage.getItem('addressInfo'))
+export const getProductCost = () => {
+  return localStorage.getItem('productCost')
+    ? JSON.parse(localStorage.getItem('productCost'))
+    : null;
+};
+
+export const setShippingDetails = (details) => {
+  localStorage.setItem('shippingDetails', JSON.stringify(details));
+};
+
+export const getShippingDetails = () => {
+  return localStorage.getItem('shippingDetails')
+    ? JSON.parse(localStorage.getItem('shippingDetails'))
     : null;
 };

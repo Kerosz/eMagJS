@@ -13,7 +13,7 @@ export const parseRequestUrl = () => {
 
 export const redirectUser = () => {
   if (getCartItems().length !== 0) {
-    document.location.hash = '/checkout';
+    document.location.hash = '/checkout?ref=shipping';
   } else {
     document.location.hash = '/myaccount';
   }

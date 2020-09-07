@@ -71,10 +71,17 @@ const App = {
   // Custom rerender
   rerender: async (component) => {
     document.querySelector('[data-root]').innerHTML =
-      Header.render() + (await component.render()) + Footer.render();
+      component === Signin ||
+      component === Register ||
+      component === Admin ||
+      component === Checkout
+        ? await component.render()
+        : component === Home
+        ? Header.render('sticky') + (await component.render()) + Footer.render()
+        : Header.render() + (await component.render()) + Footer.render();
 
     if (component.componentDidUpdate) await component.componentDidUpdate();
-    Header.componentDidUpdate();
+    if (component !== Checkout) Header.componentDidUpdate();
   },
 };
 

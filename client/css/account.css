@@ -335,12 +335,15 @@
   width: 100%;
   padding: 1rem 0;
   border-bottom: 0.1rem solid #70707075;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.settings__info-address--item > h4 {
+.settings__info-address--item h4 {
   margin-bottom: 0.3rem;
 }
 
-.settings__info-address--item > p {
+.settings__info-address--item p {
   margin-bottom: 0.3rem;
 }

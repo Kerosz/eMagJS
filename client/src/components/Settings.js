@@ -22,8 +22,7 @@ const Settings = {
     `,
   },
 
-  componentDidUpdate: () => {
-    // Toggle address model
+  toggleCreateAddressModel: () => {
     document
       .querySelector('[data-add-address]')
       .addEventListener('click', () => {
@@ -38,7 +37,19 @@ const Settings = {
         document.body.style.cssText = 'overflow: auto';
       })
     );
+  },
 
+  removeAddress: () => {
+    document.querySelectorAll('[data-remove]').forEach((address) => {
+      address.addEventListener('click', async () => {
+        console.log(address.parentElement.id);
+
+        await Api.removeAddress(address.parentElement.id);
+      });
+    });
+  },
+
+  componentDidUpdate: () => {
     // Update informations
     const formSelector = document.querySelectorAll('[data-form]');
 
@@ -113,7 +124,6 @@ const Settings = {
             }
           });
 
-          console.log(formData);
           const data = await Api.addAddress(formData);
 
           if (data.error) {
@@ -125,6 +135,9 @@ const Settings = {
         }
       });
     });
+
+    Settings.removeAddress();
+    Settings.toggleCreateAddressModel();
   },
 
   render: async () => {
@@ -219,6 +232,7 @@ const Settings = {
                 ? addresses
                     .map(
                       ({
+                        id,
                         fullname,
                         phone: addressPhone,
                         address,
@@ -228,10 +242,13 @@ const Settings = {
                       }) => {
                         return `
                       <ul class="settings__info-address">
-                        <li class="settings__info-address--item">
-                          <h4>${fullname} - ${addressPhone}</h4>
-                          <p>${address}</p>
-                          <p>${state}, ${city} ${postcode}</p>
+                        <li class="settings__info-address--item" id="${id}" >
+                          <div>
+                            <h4>${fullname} - ${addressPhone}</h4>
+                            <p>${address}</p>
+                            <p>${state}, ${city} ${postcode}</p>
+                          </div>
+                          <div class="settings__btn btn-s" data-remove>Remove</div>
                         </li>
                       </ul>
                       `;

@@ -260,6 +260,7 @@
 }
 
 .cart__summary-btn {
+  display: block;
   position: relative;
   width: 100%;
 }
